@@ -3,7 +3,7 @@
     "importExistingSpec": false,
     "name": "Gateway",
     "repo": "ben-foster-cko/docs-demo",
-    "splitSpec": false,
+    "splitSpec": true,
     "samples": true,
     "installSwaggerUI": true
   }
