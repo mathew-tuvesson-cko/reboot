@@ -1,0 +1,10 @@
+{
+  "generator-openapi-repo": {
+    "importExistingSpec": false,
+    "name": "Gateway",
+    "repo": "ben-foster-cko/docs-demo",
+    "splitSpec": false,
+    "samples": true,
+    "installSwaggerUI": true
+  }
+}
