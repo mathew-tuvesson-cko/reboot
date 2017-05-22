@@ -1,0 +1,61 @@
+type: object
+description: Charge
+required:
+  - currency
+properties:
+  chargeId:
+    description: Charge unique identifier
+    readOnly: true
+    allOf:
+      - $ref: '#/definitions/ResourceId'
+  amount:
+    type: integer
+    description: |
+      The amount to charge the payment source in the major currency.
+      Omitting the amount or providing 0 will perform a card verification.
+    minimum: 0
+    example: 6540
+  status:
+    type: string
+    description: If coupon enabled
+    readOnly: true
+    enum:
+      - issued
+      - expired
+  currency:
+    type: string
+    description: |
+      The three-letter ISO currency code
+    example: GBP
+    maxLength: 3
+    minLength: 3
+  source:
+    description: |
+      The charge payment source. The following sources are supported:
+
+      - Card `object`
+      - Card Id `string`
+      - Card Token `string`
+      - Customer Id `string`
+      - Customer Email `string`
+    type: object
+  expiredTime:
+    description: Coupon's expire time (end time)
+    type: string
+    format: date-time
+  createdTime:
+    description: Coupon created time
+    allOf:
+      - $ref: '#/definitions/ServerTimestamp'
+  updatedTime:
+    description: Coupon updated time.
+    allOf:
+      - $ref: '#/definitions/ServerTimestamp'
+  _links:
+    type: array
+    description: The links related to resource
+    readOnly: true
+    minItems: 1
+    maxItems: 1
+    items:
+      - $ref: '#/definitions/SelfLink'
