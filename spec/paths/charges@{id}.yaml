@@ -1,0 +1,20 @@
+parameters:
+- in: path
+  name: id
+  type: string
+  required: true
+  description: The charge identifier
+  example: charge_572f282223c44ab4b5264fc6d1665835
+get:
+  tags:
+    - Charges
+  summary: Get a charge
+  description: |
+    Get a charge with the specified identifier string
+  responses:
+    200:
+      description: Charge was retrieved successfully
+    401:
+      $ref: "#/responses/AccessForbidden"
+    404:
+      $ref: "#/responses/NotFound"

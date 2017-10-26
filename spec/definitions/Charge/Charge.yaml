@@ -3,11 +3,11 @@ description: Charge
 required:
   - currency
 properties:
-  chargeId:
+  id:
     description: Charge unique identifier
     readOnly: true
     allOf:
-      - $ref: '#/definitions/ResourceId'
+      - $ref: '#/definitions/ChargeId'
   amount:
     type: integer
     description: |
@@ -17,22 +17,21 @@ properties:
     example: 6540
   status:
     type: string
-    description: If coupon enabled
+    description: The status of the charge
     readOnly: true
     enum:
-      - issued
-      - expired
+      - Authorised
+      - Declined
   currency:
     type: string
     description: |
       The three-letter ISO currency code
-    example: GBP
+    example: USD
     maxLength: 3
     minLength: 3
   source:
     description: |
       The charge payment source. The following sources are supported:
-
       - Card `object`
       - Card Id `string`
       - Card Token `string`
@@ -52,10 +51,13 @@ properties:
     allOf:
       - $ref: '#/definitions/ServerTimestamp'
   _links:
-    type: array
+    type: object
     description: The links related to resource
     readOnly: true
     minItems: 1
     maxItems: 1
-    items:
-      - $ref: '#/definitions/SelfLink'
+    properties:
+      self:
+        type: object
+        allOf:
+          - $ref: '#/definitions/SelfLink'

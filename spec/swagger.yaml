@@ -14,31 +14,24 @@ info:
     # Introduction
 
     The Checkout API is built on HTTP.  Our API is RESTful.  It has predictable
-
     resource URLs.  It returns HTTP response codes to indicate errors.  It also
-
-    accepts and returns JSON in the HTTP body.  You can use your favorite
-
-    HTTP/REST library for your programming language to use Checkout's API, or
-
-    you can use one of our SDKs (currently available in
+    accepts and returns JSON in the HTTP body.  
+    
+    
+    You can use your favorite HTTP/REST library for your programming language to use Checkout's API, 
+    or you can use one of our SDKs (currently available in 
     [PHP](https://github.com/checkout/checkout-php-library),
     [.NET](https://github.com/checkout/checkout-net-library) and
     [Java](https://github.com/checkout/checkout-java-library)).
 
-
     # Authentication
 
     When you sign up for an account, you are given a secret and public API key
-    pair.
-
-
-    You authenticate with the Checkout API by providing the appropriate key in
-    the request Authorization header.
+    pair. You authenticate with the Checkout API by providing the appropriate key in
+    the request Authorization header.  
 
 
     Never share your secret keys. Keep them guarded and secure.
-
 
     <!-- ReDoc-Inject: <security-definitions> -->
 host: api.checkout.com
@@ -48,7 +41,7 @@ schemes:
 x-servers:
   - url: //api.checkout.com
     description: Live API
-  - url: //api-sandbox.checkout.com
+  - url: //sandbox.checkout.com
     description: Sandbox API
 produces:
   - application/json
@@ -58,26 +51,19 @@ x-tagGroups:
   - name: Gateway
     tags:
       - Charges
-      - Coupons
-      - Webhooks
 tags:
   - name: Charges
     description: |
       Charge a variety of payment sources and view transaction details.
-  - name: Coupons
-    description: >
-      Coupons allows to apply different types of discounts to Invoices,
-      Subscriptions and Plans. Redeemed Coupons will be applied only to Invoices
-      with the same currency.
-  - name: Webhooks
-    description: >
-      Webhooks are designed to notify your systems when certain/all registered
-      events happen in near real-time.
+  # - name: Webhooks
+  #   description: >
+  #     Webhooks are designed to notify your systems when certain/all registered
+  #     events happen in near real-time.
 
-      They allow you to collect information about those events. Rebilly can send
-      these information via
+  #     They allow you to collect information about those events. Rebilly can send
+  #     these information via
 
-      POST to an URL of your choice.
+  #     POST to an URL of your choice.
 securityDefinitions:
   ApiKey:
     description: >
@@ -201,29 +187,11 @@ parameters:
     description: The response media type
 
 headers:
-  Rate-Limit-Limit:
-    description: The number of allowed requests in the current period
-    type: integer
-  Rate-Limit-Remaining:
-    description: The number of remaining requests in the current period
-    type: integer
-  Rate-Limit-Reset:
-    description: >
-      The date in format defined by [RFC
-      822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)
-
-      when the current period will reset
-    type: string
-  Pagination-Total:
-    description: Total items count
-    type: integer
-  Pagination-Limit:
-    description: Items per page limit
-    type: integer
-  Pagination-Offset:
-    description: Pagination offset
-    type: integer
-  Request-Id:
+  Cko-Request-Id:
     description: Unique identifer of the request
     type: string
-    example: CBR1234XRDK
+    example: 0HL80RJLS76GU
+  Cko-Version:
+    description: Version of the API
+    type: string
+    example: 1.1.34

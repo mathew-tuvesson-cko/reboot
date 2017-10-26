@@ -3,40 +3,51 @@ post:
     - Charges
   summary: Charge a payment source
   description: |
-    Request Charge
+    Charge a new or existing source. 
+    Payment sources can be either a full card payment source (PCI compliant merchants) or one of the following:
+
+    - Payment token e.g. `tok_13412e98f8aa49df9d6a816ed344ce46`
+    - Payment source identifier e.g. `src_3cdac40561494c5aaa8f8c81ef245c10`
+    - Customer identifier e.g. `cust_2fc10b92693041f280bbe12cd787b47c`
+
   parameters:
     - name: body
       in: body
-      description: Charge resource
       required: true
       schema:
-        $ref: '#/definitions/Charge'
+        $ref: '#/definitions/ChargeRequest'
   responses:
     '201':
-      description: The charge was approved
+      description: Charge was processed successfully
       schema:
-        $ref: '#/definitions/Charge'
+        $ref: '#/definitions/ChargeResponse'
+      headers:
+        Cko-Request-Id:
+          $ref: "#/headers/Cko-Request-Id"
+        Cko-Version:
+          $ref: "#/headers/Cko-Version"
     '401':
-      $ref: '#/responses/AccessForbidden'
+      description: "Unauthorised"
     '422':
       description: Invalid data was sent
       schema:
-        $ref: '#/definitions/InvalidError'
-get:
-  tags:
-    - Charges
-  summary: Retrieve a list of charges
-  description: |
-    Retrieve a list of charges
-  parameters:
-    - $ref: '#/parameters/collectionLimit'
-    - $ref: '#/parameters/collectionOffset'
-  responses:
-    '200':
-      description: A list of charges was retrieved successfully
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Charge'
-    '401':
-      $ref: '#/responses/AccessForbidden'
+        $ref: '#/definitions/Error'
+        
+# get:
+#   tags:
+#     - Charges
+#   summary: Retrieve a list of charges
+#   description: |
+#     Retrieve a list of charges
+#   parameters:
+#     - $ref: '#/parameters/collectionLimit'
+#     - $ref: '#/parameters/collectionOffset'
+#   responses:
+#     '200':
+#       description: A list of charges was retrieved successfully
+#       schema:
+#         type: array
+#         items:
+#           $ref: '#/definitions/Charge'
+#     '401':
+#       $ref: '#/responses/AccessForbidden'

@@ -1,0 +1,68 @@
+type: object
+description: Charge response
+required:
+  - currency
+properties:
+  id:
+    description: Charge unique identifier
+    readOnly: true
+    allOf:
+      - $ref: '#/definitions/ChargeId'
+  amount:
+    type: integer
+    description: The amount charged to the payment source
+    example: 6540
+  currency:
+    type: string
+    description: The three-letter ISO currency code of the charge
+    example: USD
+    maxLength: 3
+    minLength: 3
+  status:
+    type: string
+    description: The status of the charge
+    enum:
+      - Authorised
+      - Declined
+  auth_code:
+    type: string
+    description: The acquirer authorisation code if the charge was Authorised
+    example: "643381"
+  provider_response:
+    type: string
+    description: The acquirer response summary
+    example: "Approved"
+  provider_description:
+    type: string
+    description: The acquirer response details
+    example: "Approved"
+  source:
+    description: The charge payment source, if this is a reusable source
+    type: object
+    allOf:
+      - $ref: '#/definitions/PaymentSource'
+  processed_on:
+    description: The date/time the charge was processed
+    allOf:
+      - $ref: '#/definitions/ServerTimestamp'
+  _links:
+    type: object
+    description: The links related to resource
+    readOnly: true
+    minItems: 1
+    properties:
+      self:
+        type: object
+        allOf:
+          - $ref: '#/definitions/NewLink'
+        description: The URI of the charge
+      capture:
+        type: object
+        allOf:
+          - $ref: '#/definitions/NewLink'
+        description: The capture endpoint if the charge can be captured
+    required:
+      - self
+          
+        
+    

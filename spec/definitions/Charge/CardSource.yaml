@@ -1,0 +1,28 @@
+type: object
+description: A card payment source
+properties:
+  number:
+    type: string
+    description: The card number
+    example: "4543474002249996"
+  exp_month:
+    type: integer
+    description: The two-digit expiry month of the card
+    minimum: 1
+    example: 6
+  exp_year:
+    type: integer
+    description: The four-digit expiry year of the card
+    example: 2025
+  name: 
+    type: string
+    description: The card-holder name
+    example: "Bruce Wayne"
+  cvv:
+    type: string
+    description: Card security code. 3 digits, except for Amex (4 digits).	
+    example: "956"
+required:
+  - number
+  - exp_month
+  - exp_year

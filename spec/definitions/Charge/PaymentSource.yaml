@@ -1,0 +1,63 @@
+type: object
+description: Charge payment source
+properties:
+  id:
+    type: string
+    description: The payment source identifier. Can be used for subsequent charges
+    example: src_2fc10b92693041f280bbe12cd787b47c
+  card:
+    type: object
+    properties: 
+      exp_month:
+        type: integer
+        description: The two-digit expiry month (cards)
+        minimum: 1
+        example: 6
+      exp_year:
+        type: integer
+        description: The four-digit expiry year (cards)
+        example: 2025
+      scheme: 
+        type: string
+        description: The card scheme
+        example: "VISA"
+      last_4:
+        type: string
+        description: The last four digits of the card number
+        example: "9996"
+      bin:
+        type: string
+        description: The card issuer BIN
+        example: "454347"
+      type:
+        type: string
+        description: The card type
+        enum: 
+          - Credit
+          - Debit
+          - Prepaid
+        example: Credit
+      category:
+        type: string
+        description: The card category
+        enum:
+          - Consumer
+          - Commercial
+        example: Consumer
+      issuer:
+        type: string
+        example: "GOTHAM STATE BANK"
+      issuer_country:
+        type: string
+        maxLength: 2
+        minLength: 2
+        description: The card issuer country ISO-2 code
+        example: "US"
+
+
+  
+
+required:
+  - id
+  - exp_month
+  - exp_year
