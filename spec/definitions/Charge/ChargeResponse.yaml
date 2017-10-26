@@ -60,7 +60,7 @@ properties:
         type: object
         allOf:
           - $ref: '#/definitions/NewLink'
-        description: The capture endpoint if the charge can be captured
+        description: A link to capture the charge if applicable
     required:
       - self
           
