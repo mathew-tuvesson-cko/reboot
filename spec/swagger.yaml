@@ -190,8 +190,6 @@ headers:
   Cko-Request-Id:
     description: Unique identifer of the request
     type: string
-    example: 0HL80RJLS76GU
   Cko-Version:
     description: Version of the API
     type: string
-    example: 1.1.34

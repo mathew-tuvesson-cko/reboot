@@ -23,7 +23,7 @@ properties:
     allOf:
       - $ref: '#/definitions/CardSource'
   capture:
-    type: bool
+    type: boolean
     description: Whether to capture the charge. The default is `true`
     example: true
   capture_on:
@@ -32,11 +32,11 @@ properties:
     description: A unix timestamp that determines when the charge should be captured
     example: 1509041202
   3ds:
-    type: bool
+    type: boolean
     description: Whether to process this as a 3D-Secure charge
     example: true
   attempt_n3d: 
-    type: bool
+    type: boolean
     description: |
       Determines whether to attempt a 3D-Secure charge as non-3DS 
       should the card issuer not be enrolled.

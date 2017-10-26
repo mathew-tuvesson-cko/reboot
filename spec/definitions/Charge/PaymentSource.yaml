@@ -54,10 +54,5 @@ properties:
         description: The card issuer country ISO-2 code
         example: "US"
 
-
-  
-
 required:
   - id
-  - exp_month
-  - exp_year
