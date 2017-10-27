@@ -1,0 +1,38 @@
+type: object
+description: Charge response
+required:
+  - id
+  - status
+properties:
+  id:
+    description: Charge unique identifier
+    readOnly: true
+    allOf:
+      - $ref: '#/definitions/ChargeId'
+  status:
+    type: string
+    description: The status of the charge
+    enum:
+      - Pending
+  _links:
+    type: object
+    description: The links related to the charge
+    readOnly: true
+    minItems: 2
+    properties:
+      self:
+        type: object
+        allOf:
+          - $ref: '#/definitions/NewLink'
+        description: The URI of the charge
+      redirect:
+        type: object
+        allOf:
+          - $ref: '#/definitions/NewLink'
+        description: The URI that the customer should be redirected to, to complete the charge
+    required:
+      - self
+      - redirect
+          
+        
+    

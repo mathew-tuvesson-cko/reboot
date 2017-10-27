@@ -10,6 +10,9 @@ post:
     - Payment source identifier e.g. `src_3cdac40561494c5aaa8f8c81ef245c10`
     - Customer identifier e.g. `cust_2fc10b92693041f280bbe12cd787b47c`
 
+    Some payment requests may require the owner to be redirected to a third party site prior to completing the payment, 
+    for example, 3D-Secure payments will redirect the card holder to the issuer's 3D-Secure page. In these cases a HTTP 202 response will be returned, containing a redirect link.
+
   parameters:
     - name: body
       in: body
@@ -26,12 +29,14 @@ post:
           $ref: "#/headers/Cko-Request-Id"
         Cko-Version:
           $ref: "#/headers/Cko-Version"
+    '204':
+      description: Charge was accepted and is awaiting customer input
+      schema:
+        $ref: '#/definitions/ChargeRedirectResponse'
     '401':
       description: Unauthorised
     '422':
-      description: Invalid data was sent
-      schema:
-        $ref: '#/definitions/Error'
+      $ref: '#/responses/InvalidDataError'
         
 # get:
 #   tags:

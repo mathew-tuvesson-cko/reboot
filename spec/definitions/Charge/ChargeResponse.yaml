@@ -1,7 +1,13 @@
 type: object
 description: Charge response
 required:
+  - id
+  - amount
   - currency
+  - status
+  - response_code
+  - processed_on
+  - _links
 properties:
   id:
     description: Charge unique identifier

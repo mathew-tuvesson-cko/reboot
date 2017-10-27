@@ -77,6 +77,7 @@ securityDefinitions:
     in: header
 security:
   - ApiKey: []
+
 responses:
   AccessForbidden:
     description: 'Access forbidden, invalid API-KEY was used'
@@ -93,7 +94,8 @@ responses:
   InvalidDataError:
     description: Invalid data was sent
     schema:
-      $ref: '#/definitions/InvalidError'
+      $ref: '#/definitions/ValidationError'
+
 parameters:
   resourceId:
     name: id
