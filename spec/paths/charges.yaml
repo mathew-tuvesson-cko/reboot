@@ -30,7 +30,7 @@ post:
         Cko-Version:
           $ref: "#/headers/Cko-Version"
     '204':
-      description: Charge was accepted and is awaiting customer input
+      description: Charge was accepted and is awaiting owner input
       schema:
         $ref: '#/definitions/ChargeRedirectResponse'
     '401':
