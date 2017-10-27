@@ -1,0 +1,19 @@
+get:
+  tags:
+    - Payments
+  summary: Retrieve a payment
+  description: |
+    Retrieves the payment with the specified identifier string
+  parameters:
+    - in: path
+      name: id
+      type: string
+      required: true
+      description: The payment identifier
+  responses:
+    '200':
+      description: Payment was retrieved successfully
+    '401':
+      description: Unauthorised
+    '404':
+      description: Payment not found

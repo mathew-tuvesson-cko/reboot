@@ -1,22 +1,22 @@
 type: object
-description: Charge response
+description: Payment response
 required:
   - id
   - status
 properties:
   id:
-    description: Charge unique identifier
+    description: Payment unique identifier
     readOnly: true
     allOf:
-      - $ref: '#/definitions/ChargeId'
+      - $ref: '#/definitions/PaymentId'
   status:
     type: string
-    description: The status of the charge
+    description: The status of the payment
     enum:
       - Pending
   _links:
     type: object
-    description: The links related to the charge
+    description: Payment links
     readOnly: true
     minItems: 2
     properties:
@@ -24,12 +24,12 @@ properties:
         type: object
         allOf:
           - $ref: '#/definitions/NewLink'
-        description: The URI of the charge
+        description: The URI of the payment
       redirect:
         type: object
         allOf:
           - $ref: '#/definitions/NewLink'
-        description: The URI that the customer should be redirected to, to complete the charge
+        description: The URI that the customer should be redirected to, to complete the payment
     required:
       - self
       - redirect

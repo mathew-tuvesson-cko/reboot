@@ -1,9 +1,9 @@
 post:
   tags:
-    - Charges
-  summary: Charge a payment source
+    - Payments
+  summary: Request a payment
   description: |
-    Charge a new or existing source. 
+    Request a payment from a new or existing source. 
     Payment sources can be either a full card payment source (PCI compliant merchants) or one of the following:
 
     - Payment token e.g. `tok_13412e98f8aa49df9d6a816ed344ce46`
@@ -18,21 +18,21 @@ post:
       in: body
       required: true
       schema:
-        $ref: '#/definitions/ChargeRequest'
+        $ref: '#/definitions/PaymentRequest'
   responses:
     '201':
-      description: Charge was processed successfully
+      description: Payment was processed successfully
       schema:
-        $ref: '#/definitions/ChargeResponse'
+        $ref: '#/definitions/PaymentResponse'
       headers:
         Cko-Request-Id:
           $ref: "#/headers/Cko-Request-Id"
         Cko-Version:
           $ref: "#/headers/Cko-Version"
     '204':
-      description: Charge was accepted and is awaiting owner input
+      description: Payment was accepted and requires input from the owner
       schema:
-        $ref: '#/definitions/ChargeRedirectResponse'
+        $ref: '#/definitions/PaymentRedirectResponse'
     '401':
       description: Unauthorised
     '422':

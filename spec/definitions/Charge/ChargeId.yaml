@@ -1,4 +1,0 @@
-type: string
-description: The charge identifier
-maxLength: 50
-example: "charge_fb5d592daf284db8b0bcc24c0fde63ab"

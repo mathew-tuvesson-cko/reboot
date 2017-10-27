@@ -50,11 +50,11 @@ consumes:
 x-tagGroups:
   - name: Gateway
     tags:
-      - Charges
+      - Payments
 tags:
-  - name: Charges
+  - name: Paymments
     description: |
-      Charge a variety of payment sources and view transaction details.
+      Resources related to payments
   # - name: Webhooks
   #   description: >
   #     Webhooks are designed to notify your systems when certain/all registered

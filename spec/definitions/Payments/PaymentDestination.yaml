@@ -1,6 +1,6 @@
 type: object
 description: |
-  A destination for OpenPay charges 
+  A destination for OpenPay payments 
 properties:
   id:
     type: string

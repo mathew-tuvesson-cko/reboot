@@ -1,9 +1,9 @@
 type: object
-description: Charge payment source
+description: Payment source
 properties:
   id:
     type: string
-    description: The payment source identifier. Can be used for subsequent charges
+    description: The payment source identifier. Can be used for subsequent payments
     example: src_2fc10b92693041f280bbe12cd787b47c
   source_type:
     type: string
