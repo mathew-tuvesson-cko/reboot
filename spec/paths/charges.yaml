@@ -27,7 +27,7 @@ post:
         Cko-Version:
           $ref: "#/headers/Cko-Version"
     '401':
-      description: "Unauthorised"
+      description: Unauthorised
     '422':
       description: Invalid data was sent
       schema:

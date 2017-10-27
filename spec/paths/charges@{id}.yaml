@@ -14,6 +14,6 @@ get:
     '200':
       description: Charge was retrieved successfully
     '401':
-      $ref: '#/responses/AccessForbidden'
+      description: Unauthorised
     '404':
       description: Charge not found

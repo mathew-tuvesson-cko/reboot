@@ -28,13 +28,17 @@ properties:
     type: string
     description: The acquirer authorisation code if the charge was Authorised
     example: "643381"
-  provider_response:
+  response_code:
     type: string
-    description: The acquirer response summary
+    description: Gateway response code
+    example: "10000"
+  response_summary:
+    type: string
+    description: The Gateway response summary
     example: "Approved"
-  provider_description:
+  response_details:
     type: string
-    description: The acquirer response details
+    description: The Gateway response details
     example: "Approved"
   source:
     description: The charge payment source, if this is a reusable source
@@ -47,7 +51,7 @@ properties:
       - $ref: '#/definitions/ServerTimestamp'
   _links:
     type: object
-    description: The links related to resource
+    description: The links related to the charge
     readOnly: true
     minItems: 1
     properties:
