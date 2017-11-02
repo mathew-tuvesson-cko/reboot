@@ -50,9 +50,10 @@ consumes:
 x-tagGroups:
   - name: Gateway
     tags:
+      - Sources
       - Payments
 tags:
-  - name: Paymments
+  - name: Payments
     description: |
       Resources related to payments
   # - name: Webhooks

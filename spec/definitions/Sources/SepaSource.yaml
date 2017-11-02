@@ -1,0 +1,35 @@
+type: object
+description: A SEPA payment source
+allOf:
+  - $ref: '#/definitions/SourceRequest'
+  - type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - sepa
+      sepa:
+        type: object
+        description: Additional data required to create SEPA payment sources
+        properties:
+          iban:
+            type: string
+            description: The owner's IBAN
+            example: "GB29 RBOS 6016 1331 9268 19"
+          address_line1: 
+            type: string
+            description: The first line of the owner's address
+            example: "Priory Road"
+          city:
+            type: string
+            description: The owner's city
+            example: "London"
+          postal_code:
+            type: string
+            description: The owner's postal code
+            example: "NW6 9RT"
+        required:
+          - iban
+          - address_line1
+          - city
+          - iban

@@ -1,0 +1,23 @@
+post:
+  tags:
+    - Sources
+  summary: Add a payment source
+  description: |
+    Payment sources can be used to make multiple payments. In some cases, adding a payment source
+    requires authorisation by the owner, before a payment can take place.
+
+  parameters:
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/SourceRequest'
+  responses:
+    '201':
+      description: Payment source added successfully
+      schema:
+        $ref: '#/definitions/AddSourceResponse'
+    '401':
+      description: Unauthorised
+    '422':
+      $ref: '#/responses/InvalidDataError'
