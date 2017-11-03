@@ -32,4 +32,4 @@ allOf:
           - iban
           - address_line1
           - city
-          - iban
+          - postal_code
