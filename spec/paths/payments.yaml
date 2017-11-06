@@ -6,11 +6,11 @@ post:
     Request a payment from a new or existing source. 
     Payment sources can be either a full card payment source (PCI compliant merchants) or one of the following:
 
-    - Payment token e.g. `tok_13412e98f8aa49df9d6a816ed344ce46`
+    - Short-lived tokens such as card tokens and wallet tokens e.g. `tok_13412e98f8aa49df9d6a816ed344ce46`
     - Payment source identifier e.g. `src_3cdac40561494c5aaa8f8c81ef245c10`
     - Customer identifier e.g. `cust_2fc10b92693041f280bbe12cd787b47c`
 
-    Source identifiers include existing cards as well as alternative payment sources. 
+    Source identifiers include existing cards and alternative payment sources. 
 
     Some payment requests may require the owner to be redirected to a third party site prior to completing the payment, 
     for example, 3D-Secure payments will redirect the card holder to the issuer's 3D-Secure page. In these cases a HTTP 202 response will be returned, containing a redirect link.
