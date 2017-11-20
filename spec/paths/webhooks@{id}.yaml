@@ -14,10 +14,12 @@ get:
   responses:
     '200':
       description: Webhook was retrieved successfully
-      allOf:
-        - $ref: '#/definitions/WebhookRequest'
-      required:
-        - url
+      schema:
+        type: object
+        allOf:
+          - $ref: '#/definitions/WebhookRequest'
+        required:
+          - url
     '401':
       description: Unauthorized
     '404':

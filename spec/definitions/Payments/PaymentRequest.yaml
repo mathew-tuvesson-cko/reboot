@@ -47,6 +47,10 @@ properties:
     format: email
     description: An optional customer email address
     example: darkknight@batcave.com
+  reference:
+    type: string
+    description: A reference you can later use to refer to this payment
+    example: ORD-5023-4E89
   billing_descriptor:
     $ref: '#/definitions/BillingDescriptor'
   destinations:
