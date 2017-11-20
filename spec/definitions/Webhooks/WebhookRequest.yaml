@@ -1,0 +1,23 @@
+type: object
+properties:
+  url:
+    type: string
+    example: 'https://example.com/webhooks'
+    format: url
+  active:
+    type: boolean
+    default: true
+    example: true
+  headers:
+    type: object
+    example:
+      authorization: '1234'
+  content_type:
+    type: string
+    enum:
+      - json
+      - xml
+    default: json
+    example: json
+  events:
+    $ref: '#/definitions/WebhookEvents'

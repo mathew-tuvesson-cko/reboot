@@ -1,0 +1,12 @@
+type: array
+items:
+  type: string
+  enum:
+    - charge.succeeded
+    - charge.failed
+    - charge.voided
+    - charge.voided.failed
+    - charge.captured
+    - charge.captured.failed
+    - charge.refunded
+    - charge.refunded.failed
