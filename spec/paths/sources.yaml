@@ -18,6 +18,6 @@ post:
       schema:
         $ref: '#/definitions/AddSourceResponse'
     '401':
-      description: Unauthorised
+      description: Unauthorized
     '422':
       $ref: '#/responses/InvalidDataError'

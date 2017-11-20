@@ -52,19 +52,19 @@ x-tagGroups:
     tags:
       - Sources
       - Payments
+      - Webhooks
 tags:
   - name: Payments
     description: |
       Resources related to payments
-  # - name: Webhooks
-  #   description: >
-  #     Webhooks are designed to notify your systems when certain/all registered
-  #     events happen in near real-time.
+  - name: Webhooks
+    description: >
+      Webhooks are designed to notify your systems when certain/all registered
+      events happen in near real-time.
 
-  #     They allow you to collect information about those events. Rebilly can send
-  #     these information via
+      They allow you to collect information about those events. Checkout.com can send
+      these information via POST to an URL of your choice.
 
-  #     POST to an URL of your choice.
 securityDefinitions:
   ApiKey:
     description: >
