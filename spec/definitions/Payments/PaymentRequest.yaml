@@ -114,3 +114,10 @@ properties:
     description: |
       For OpenPay payments, destinations determine the proportion of the payment amount that should 
       be credited to other OpenPay accounts
+  items:
+    type: array
+    items:
+      - $ref: '#/definitions/Item'
+    minItems: 0
+    description: |
+      The items or products associated with the payment
