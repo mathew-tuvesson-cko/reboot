@@ -74,6 +74,8 @@ properties:
     description: Indicates whether risk checks for the requested payment should be skipped
     default: false
     example: true
+  recipient:
+    $ref: '#/definitions/PaymentRecipient'
   destinations:
     type: array
     items:
