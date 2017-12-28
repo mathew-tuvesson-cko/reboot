@@ -57,6 +57,12 @@ properties:
     type: string
     description: A description of the payment
     example: Set of 3 masks
+  metadata:
+    type: object
+    description: Set of key/value pairs that you can attach to a payment. It can be useful for storing additional information in a structured format
+    example:
+      coupon_code: "NY2018"
+      partner_id: 123989
   billing_descriptor:
     $ref: '#/definitions/BillingDescriptor'
   customer_ip:
