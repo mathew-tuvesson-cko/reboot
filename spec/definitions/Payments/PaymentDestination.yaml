@@ -8,7 +8,7 @@ properties:
     example: "vendor-123456"
   amount:
     type: integer
-    description: The amount to be credited to the destination
+    description: The amount to be credited to the destination in the major currency unit
     example: 10.50 
 required:
   - id

@@ -33,6 +33,19 @@ properties:
       phone:
         type: string
         description: The phone number linked to the payment source
+  customer:
+    type: object
+    description: Details of the customer associated with the payment
+    properties:
+      email:
+        type: string
+        format: email
+        description: An optional email address to associate with the customer
+        example: darkknight@batcave.com
+      name:
+        type: string
+        description: The customer's name. This will only set the name for *new* customers
+        example: Jack Napier
   shipping:
     type: object
     description: The payment shipping details
@@ -44,10 +57,6 @@ properties:
       phone:
         type: string
         description: The phone number associated with the shipping address
-  customer_ip:
-    description: The customer's IP address. Required for certain risk checks
-    allOf:
-      - $ref: '#/definitions/IPAddress'
   capture:
     type: boolean
     description: Whether to capture the payment (if applicable)
@@ -70,11 +79,6 @@ properties:
       [Read more](https://docs.checkout.com/getting-started/merchant-api/3d-secure-charges/attempt-non-3d-secure-charge) for more information.
     default: false
     example: true
-  email:
-    type: string
-    format: email
-    description: An optional email address to associate with the customer
-    example: darkknight@batcave.com
   reference:
     type: string
     description: A reference you can later use to identify this payment such as an order number
@@ -83,6 +87,10 @@ properties:
     type: string
     description: A description of the payment
     example: Set of 3 masks
+  purchase_ip:
+    description: The IP address used to make the purchase. Required for some risk checks
+    allOf:
+      - $ref: '#/definitions/IPAddress'
   metadata:
     type: object
     description: Set of key/value pairs that you can attach to a payment. It can be useful for storing additional information in a structured format
