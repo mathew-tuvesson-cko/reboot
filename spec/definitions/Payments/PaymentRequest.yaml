@@ -24,7 +24,8 @@ properties:
       - $ref: '#/definitions/CardSource'
   capture:
     type: boolean
-    description: Whether to capture the payment (if applicable). The default is `true`
+    description: Whether to capture the payment (if applicable)
+    default: true
     example: true
   capture_on:
     description: An ISO 8601 timestamp that determines when the payment should be captured. Only applied when `capture` is `true`
@@ -33,6 +34,7 @@ properties:
   3ds:
     type: boolean
     description: Whether to process this payment as a 3D-Secure
+    default: false
     example: true
   attempt_n3d: 
     type: boolean
@@ -40,6 +42,7 @@ properties:
       Determines whether to attempt a 3D-Secure payment as non-3DS 
       should the card issuer not be enrolled.
       [Read more](https://docs.checkout.com/getting-started/merchant-api/3d-secure-charges/attempt-non-3d-secure-charge) for more information.
+    default: false
     example: true
   email:
     type: string
@@ -60,6 +63,11 @@ properties:
     description: The customer's IP address. Required for certain risk checks
     allOf:
       - $ref: '#/definitions/IPAddress'
+  skip_risk_check:
+    type: boolean
+    description: Indicates whether risk checks for the requested payment should be skipped
+    default: false
+    example: true
   destinations:
     type: array
     items:
