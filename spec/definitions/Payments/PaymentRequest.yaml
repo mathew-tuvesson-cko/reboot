@@ -22,6 +22,32 @@ properties:
     description: The payment source
     allOf:
       - $ref: '#/definitions/CardSource'
+  billing:
+    type: object
+    description: The payment billing details
+    properties:
+      address:
+        description: The payment source billing address
+        allOf:
+          - $ref: '#/definitions/Address'
+      phone:
+        type: string
+        description: The phone number linked to the payment source
+  shipping:
+    type: object
+    description: The payment shipping details
+    properties:
+      address:
+        description: The shipping address
+        allOf:
+          - $ref: '#/definitions/Address'
+      phone:
+        type: string
+        description: The phone number associated with the shipping address
+  customer_ip:
+    description: The customer's IP address. Required for certain risk checks
+    allOf:
+      - $ref: '#/definitions/IPAddress'
   capture:
     type: boolean
     description: Whether to capture the payment (if applicable)
@@ -65,10 +91,6 @@ properties:
       partner_id: 123989
   billing_descriptor:
     $ref: '#/definitions/BillingDescriptor'
-  customer_ip:
-    description: The customer's IP address. Required for certain risk checks
-    allOf:
-      - $ref: '#/definitions/IPAddress'
   skip_risk_check:
     type: boolean
     description: Indicates whether risk checks for the requested payment should be skipped
