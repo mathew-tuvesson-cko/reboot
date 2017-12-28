@@ -46,6 +46,10 @@ properties:
     format: email
     description: An optional email address to associate with the customer
     example: darkknight@batcave.com
+  description:
+    type: string
+    description: A description of the payment
+    example: Set of 3 masks
   reference:
     type: string
     description: A reference you can later use to refer to this payment
