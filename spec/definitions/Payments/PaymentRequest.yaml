@@ -24,13 +24,12 @@ properties:
       - $ref: '#/definitions/CardSource'
   capture:
     type: boolean
-    description: Whether to capture the payment. The default is `true`. Payments can also be captured in the Checkout Hub.
+    description: Whether to capture the payment (if applicable). The default is `true`
     example: true
   capture_on:
-    type: integer
-    format: int64
-    description: A unix timestamp that determines when the payment should be captured
-    example: 1509041202
+    description: An ISO 8601 timestamp that determines when the payment should be captured. Only applied when `capture` is `true`
+    allOf:
+      - $ref: '#/definitions/Timestamp'
   3ds:
     type: boolean
     description: Whether to process this payment as a 3D-Secure
@@ -45,7 +44,7 @@ properties:
   email:
     type: string
     format: email
-    description: An optional customer email address
+    description: An optional email address to associate with the customer
     example: darkknight@batcave.com
   reference:
     type: string
