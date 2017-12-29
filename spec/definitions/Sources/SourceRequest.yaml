@@ -19,3 +19,7 @@ properties:
     type: string
     description: The payment source owner's phone number
     example: +44 7776 054321
+  customer:
+    type: string
+    description: The identifier of a customer you wish to attach this source to
+    example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
