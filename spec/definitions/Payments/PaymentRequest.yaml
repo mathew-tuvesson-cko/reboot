@@ -46,6 +46,7 @@ properties:
       phone:
         type: string
         description: The phone number associated with the shipping address
+        example: +44 7776 054321
   capture:
     type: boolean
     description: Whether to capture the payment (if applicable)

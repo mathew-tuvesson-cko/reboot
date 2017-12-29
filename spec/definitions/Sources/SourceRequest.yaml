@@ -11,7 +11,11 @@ properties:
     type: string
     description: A reference you can later use to identify the source
     example: "X-080957-N34"
-  customer:
+  billing_address:
+    description: The payment source owner's billing address
+    allOf:
+      - $ref: '#/definitions/Address'
+  phone:
     type: string
-    description: The identifier of a customer you wish to attach this source to
-    example: "src_04a5d4197a4546d6917acc2de991b9eb"
+    description: The payment source owner's phone number
+    example: +44 7776 054321
