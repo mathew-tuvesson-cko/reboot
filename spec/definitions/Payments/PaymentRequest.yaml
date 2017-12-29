@@ -22,17 +22,6 @@ properties:
     description: The payment source
     allOf:
       - $ref: '#/definitions/CardSource'
-  billing:
-    type: object
-    description: The payment billing details
-    properties:
-      address:
-        description: The payment source billing address
-        allOf:
-          - $ref: '#/definitions/Address'
-      phone:
-        type: string
-        description: The phone number linked to the payment source
   customer:
     type: object
     description: Details of the customer associated with the payment
