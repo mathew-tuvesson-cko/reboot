@@ -11,7 +11,6 @@ required:
 properties:
   id:
     description: Payment unique identifier
-    readOnly: true
     allOf:
       - $ref: '#/definitions/PaymentId'
   amount:
@@ -29,6 +28,8 @@ properties:
     description: The status of the payment
     enum:
       - Authorised
+      - Deferred Capture
+      - Captured
       - Declined
   auth_code:
     type: string
@@ -42,12 +43,8 @@ properties:
     type: string
     description: The Gateway response summary
     example: "Approved"
-  response_details:
-    type: string
-    description: The Gateway response details
-    example: "Approved"
   source:
-    description: The payment source, if this is a reusable source
+    description: The source of the payment
     type: object
     allOf:
       - $ref: '#/definitions/PaymentSource'
@@ -66,11 +63,15 @@ properties:
         allOf:
           - $ref: '#/definitions/NewLink'
         description: The URI of the payment
+        example:
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44"
       capture:
         type: object
         allOf:
           - $ref: '#/definitions/NewLink'
         description: A link to capture the payment, where applicable
+        example:
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/capture"
     required:
       - self
           

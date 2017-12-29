@@ -1,4 +1,4 @@
 type: string
 description: The payment identifier
-maxLength: 50
-example: "pay_fb5d592daf284db8b0bcc24c0fde63ab"
+maxLength: 30
+example: "pay_y3oqhf46pyzuxjbcn2giaqnb44"
