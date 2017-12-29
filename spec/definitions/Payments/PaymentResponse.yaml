@@ -48,6 +48,24 @@ properties:
     type: object
     allOf:
       - $ref: '#/definitions/PaymentSource'
+  customer:
+    type: object
+    description: The customer to which this payment is linked
+    properties:
+      id:
+        type: string
+        description: The unique identifier of the customer. This can be passed as a source when making a payment
+        example: cus_y3oqhf46pyzuxjbcn2giaqnb44
+      email:
+        type: string
+        description: The customer email address
+        example: jokershere@gmail.com
+      name:
+        type: string
+        description: The customer name
+        example: Jack Napier
+    required:
+      - id
   processed_on:
     description: The date/time the payment was processed
     allOf:
