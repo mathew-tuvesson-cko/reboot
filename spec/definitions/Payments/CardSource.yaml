@@ -5,12 +5,12 @@ properties:
     type: string
     description: The card number
     example: "4543474002249996"
-  exp_month:
+  expiry_month:
     type: integer
     description: The two-digit expiry month of the card
     minimum: 1
     example: 6
-  exp_year:
+  expiry_year:
     type: integer
     description: The four-digit expiry year of the card
     example: 2025
