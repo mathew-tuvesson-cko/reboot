@@ -1,9 +1,9 @@
 type: object
-x-extendedDiscriminator: type
+x-extendedDiscriminator: source_type
 required:
-  - type
+  - source_type
 properties:
-  type:
+  source_type:
     type: string
     description: The payment source type
     example: "paypal"

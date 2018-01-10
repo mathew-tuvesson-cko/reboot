@@ -23,7 +23,7 @@ allOf:
               - $ref: '#/definitions/NewLink'
             description: The URI that the customer should be redirected to, to complete the source creation
             example:
-              href: "https://paypal.checkout.com/billig_agreement/src_y3oqhf46pyzuxjbcn2giaqnb44/manual-completion"
+              href: "https://paypal.checkout.com/billing_agreement/src_y3oqhf46pyzuxjbcn2giaqnb44/manual-completion"
         required:
           - self
           - redirect

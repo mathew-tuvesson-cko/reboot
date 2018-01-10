@@ -5,7 +5,7 @@ properties:
     type: string
     description: The payment source identifier. Can be used for subsequent payments
     example: src_y3oqhf46pyzuxjbcn2giaqnb44
-  type:
+  source_type:
     type: string
     description: The type of payment source
     example: "card"

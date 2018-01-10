@@ -4,7 +4,7 @@ allOf:
   - $ref: '#/definitions/AddSourceResponse'
   - type: object
     properties:
-      type:
+      source_type:
         type: string
         enum:
           - sepa
