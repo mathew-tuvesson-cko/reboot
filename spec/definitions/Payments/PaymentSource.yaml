@@ -71,6 +71,14 @@ properties:
     type: string
     description: The issuer/card scheme product type
     example: CLASSIC
+  billing_address:
+    description: The payment source owner's billing address
+    allOf:
+      - $ref: '#/definitions/Address'
+  phone:
+    description: The payment source owner's phone number
+    allOf:
+      - $ref: '#/definitions/PhoneNumber'
   avs_check:
     type: string
     description: The Address Verification System check result
