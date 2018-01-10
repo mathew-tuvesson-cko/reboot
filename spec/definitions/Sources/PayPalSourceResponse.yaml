@@ -4,7 +4,7 @@ allOf:
   - $ref: '#/definitions/AddSourceResponse'
   - type: object
     properties:
-      type:
+      source_type:
         type: string
         enum:
           - paypal
@@ -27,3 +27,10 @@ allOf:
             allOf:
               - $ref: '#/definitions/NewLink'
             description: The URI of the payment source
+          response-code:
+            type: object
+            allOf:
+              - $ref: '#/definitions/NewLink'
+            description: A link to the full response code details
+            example:
+              href: "https://api.checkout.com/refs/response-codes/10000"

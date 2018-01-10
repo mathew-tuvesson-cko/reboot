@@ -1,5 +1,5 @@
 type: object
-x-extendedDiscriminator: type
+x-extendedDiscriminator: source_type
 required:
   - id
   - source_type
