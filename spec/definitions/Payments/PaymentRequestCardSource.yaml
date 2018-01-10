@@ -39,6 +39,6 @@ allOf:
           - $ref: '#/definitions/PhoneNumber'
     required:
       - number
-      - exp_month
-      - exp_year
+      - expiry_month
+      - expiry_year
       - source_type

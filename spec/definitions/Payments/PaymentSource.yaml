@@ -90,4 +90,4 @@ properties:
 
 required:
   - id
-  - type
+  - source_type

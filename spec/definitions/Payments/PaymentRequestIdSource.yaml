@@ -1,7 +1,7 @@
 type: object
 description: An existing payment source
 required:
-  - token
+  - id
 allOf:
   - $ref: "#/definitions/PaymentRequestSource"
   - type: object

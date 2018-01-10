@@ -2,7 +2,7 @@ type: object
 x-extendedDiscriminator: type
 required:
   - id
-  - type
+  - source_type
 properties:
   id: 
     type: string
