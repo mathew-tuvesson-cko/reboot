@@ -94,6 +94,14 @@ properties:
     description: Indicates whether risk checks for the requested payment should be skipped
     default: false
     example: true
+  recurring:
+    type: boolean
+    description: Indicates whether this payment is a recurring payment (cardholder not present)
+    default: false
+  moto:
+    type: boolean
+    description: Indicates whether this payment is a Mail Order or Telephone Order (cardholder not present)
+    default: false
   recipient:
     $ref: '#/definitions/PaymentRecipient'
   destinations:
