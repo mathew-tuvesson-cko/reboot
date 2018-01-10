@@ -6,6 +6,8 @@ post:
     Payment sources can be used to make multiple payments. In some cases, adding a payment source
     requires authorisation by the owner, before a payment can take place.
 
+    Some source creation requests may require the owner to be redirected to a third party site prior to completing the payment, for example, PayPal billing agreements will redirect the PayPal account holder to a PayPal page. In these cases a HTTP 202 response will be returned, containing a redirect link.
+    
   parameters:
     - name: body
       in: body
@@ -17,6 +19,10 @@ post:
       description: Payment source added successfully
       schema:
         $ref: '#/definitions/AddSourceResponse'
+    '202':
+      description: Payment source was accepted but requires input from the owner
+      schema:
+        $ref: '#/definitions/SourceRedirectResponse'
     '401':
       description: Unauthorized
     '422':

@@ -31,7 +31,7 @@ post:
           $ref: "#/headers/Cko-Request-Id"
         Cko-Version:
           $ref: "#/headers/Cko-Version"
-    '204':
+    '202':
       description: Payment was accepted but requires input from the owner
       schema:
         $ref: '#/definitions/PaymentRedirectResponse'
