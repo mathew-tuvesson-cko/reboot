@@ -63,6 +63,14 @@ properties:
     minLength: 2
     description: The card issuer country ISO-2 code
     example: "US"
+  product_id:
+    type: string
+    description: The issuer/card scheme product identifier
+    example: "F"
+  product_type:
+    type: string
+    description: The issuer/card scheme product type
+    example: CLASSIC
   avs_check:
     type: string
     description: The Address Verification System check result
