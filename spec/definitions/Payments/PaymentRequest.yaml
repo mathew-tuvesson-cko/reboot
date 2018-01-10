@@ -77,8 +77,8 @@ properties:
     type: string
     description: A description of the payment
     example: Set of 3 masks
-  purchase_ip:
-    description: The IP address used to make the purchase. Required for some risk checks
+  payment_ip:
+    description: The IP address used to make the payment. Required for some risk checks.
     allOf:
       - $ref: '#/definitions/IPAddress'
   metadata:
