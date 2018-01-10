@@ -18,4 +18,8 @@ allOf:
         description: The payment source owner's billing address. This will override the billing address specified during tokenisation
         allOf:
           - $ref: '#/definitions/Address'
+      phone:
+        description: The payment source owner's phone number. This will override the phone number specified during tokenisation
+        allOf:
+          - $ref: '#/definitions/PhoneNumber'
 

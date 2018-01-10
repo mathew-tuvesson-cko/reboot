@@ -34,9 +34,9 @@ allOf:
         allOf:
           - $ref: '#/definitions/Address'
       phone:
-        type: string
         description: The payment source owner's phone number
-        example: +44 7776 054321
+        allOf:
+          - $ref: '#/definitions/PhoneNumber'
     required:
       - number
       - exp_month
