@@ -109,6 +109,16 @@ properties:
     description: |
       For OpenPay payments, destinations determine the proportion of the payment amount that should 
       be credited to other OpenPay accounts
+  success_url:
+    type: string
+    format: uri
+    description: For redirect payment methods, overrides the default success redirect URL configured on your account
+    example: "http://example.com/payments/success"
+  fail_url:
+    type: string
+    format: uri
+    description: For redirect payment methods, overrides the default failure redirect URL configured on your account
+    example: "http://example.com/payments/fail"
   # items:
   #   type: array
   #   items:
