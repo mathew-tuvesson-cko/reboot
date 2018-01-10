@@ -50,8 +50,8 @@ consumes:
 x-tagGroups:
   - name: Gateway
     tags:
-      - Sources
       - Payments
+      - Sources
       - Webhooks
 tags:
   - name: Payments
