@@ -1,0 +1,16 @@
+type: object
+description: An existing payment source
+required:
+  - token
+allOf:
+  - $ref: "#/definitions/PaymentRequestSource"
+  - type: object
+    properties:
+      source_type:
+        type: string
+        enum:
+          - id
+      id:
+        type: string
+        description: The payment source identifer for example, a card source identifier
+        example: src_y3oqhf46pyzuxjbcn2giaqnb44

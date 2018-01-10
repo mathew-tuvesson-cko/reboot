@@ -18,10 +18,7 @@ properties:
     maxLength: 3
     minLength: 3
   source:
-    type: object
-    description: The payment source
-    allOf:
-      - $ref: '#/definitions/CardSource'
+    $ref: '#/definitions/PaymentRequestSource'
   customer:
     type: object
     description: Details of the customer associated with the payment

@@ -1,0 +1,21 @@
+type: object
+description: A token payment source
+required:
+  - token
+allOf:
+  - $ref: "#/definitions/PaymentRequestSource"
+  - type: object
+    properties:
+      source_type:
+        type: string
+        enum:
+          - token
+      token:
+        type: string
+        description: The Checkout token for example a card, wallet or alternative payment token 
+        example: tok_13412e98f8aa49df9d6a816ed344ce46
+      billing_address:
+        description: The payment source owner's billing address. This will override the billing address specified during tokenisation
+        allOf:
+          - $ref: '#/definitions/Address'
+

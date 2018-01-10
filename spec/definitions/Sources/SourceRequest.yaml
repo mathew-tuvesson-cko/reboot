@@ -1,7 +1,7 @@
 type: object
-x-extendedDiscriminator: source_type
 required:
   - source_type
+x-extendedDiscriminator: source_type
 properties:
   source_type:
     type: string
