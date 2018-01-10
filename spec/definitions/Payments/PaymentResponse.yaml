@@ -74,10 +74,13 @@ properties:
     description: The date/time the payment was processed
     allOf:
       - $ref: '#/definitions/ServerTimestamp'
+  reference:
+    type: string
+    description: Your reference for the payment
+    example: ORD-5023-4E89
   _links:
     type: object
     description: The links related to the payment
-    readOnly: true
     minItems: 1
     properties:
       self:

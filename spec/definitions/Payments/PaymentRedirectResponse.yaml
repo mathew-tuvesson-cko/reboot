@@ -14,6 +14,10 @@ properties:
     description: The status of the payment
     enum:
       - Pending
+  reference:
+    type: string
+    description: Your reference for the payment request
+    example: ORD-5023-4E89
   _links:
     type: object
     description: Payment links
