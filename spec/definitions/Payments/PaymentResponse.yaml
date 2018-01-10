@@ -13,6 +13,10 @@ properties:
     description: Payment unique identifier
     allOf:
       - $ref: '#/definitions/PaymentId'
+  action_id:
+    description: The unique identifier for the action performed against this payment
+    allOf:
+      - $ref: '#/definitions/ActionId'
   amount:
     type: integer
     description: The payment amount 

@@ -19,7 +19,7 @@ properties:
     description: The payment source owner's phone number
     allOf:
       - $ref: '#/definitions/PhoneNumber'
-  customer:
+  customer_id:
     type: string
-    description: The identifier of a customer you wish to attach this source to
+    description: The identifier of the customer you wish to add this source to. Note that a source can only be added to *one* customer
     example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"

@@ -7,7 +7,7 @@ properties:
   id: 
     type: string
     description: The unique identifier of the payment source that can be later used for payments
-    example: src_3c4ee15017374d73b27967d0fed31a2d
+    example: src_y3oqhf46pyzuxjbcn2giaqnb44
   source_type:
     type: string
     description: The payment source type
