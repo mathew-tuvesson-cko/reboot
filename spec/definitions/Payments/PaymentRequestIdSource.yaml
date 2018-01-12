@@ -14,4 +14,4 @@ allOf:
       id:
         type: string
         description: The payment source identifer for example, a card source identifier
-        example: src_y3oqhf46pyzuxjbcn2giaqnb44
+        example: src_wmlfc3zyhqzehihu7giusaaawu
