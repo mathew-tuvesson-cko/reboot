@@ -19,6 +19,15 @@ properties:
     minLength: 3
   source:
     $ref: '#/definitions/PaymentRequestSource'
+  payment_type:
+    type: string
+    description: Must be specified for card payments where the cardholder is not present (recurring or Merchant Offline Telephone Order)
+    enum:
+      - Regular
+      - Recurring
+      - MOTO
+    default: Regular
+    example: Recurring
   customer:
     type: object
     description: Details of the customer associated with the payment
@@ -91,14 +100,6 @@ properties:
     description: Indicates whether risk checks for the requested payment should be skipped
     default: false
     example: true
-  recurring:
-    type: boolean
-    description: Indicates whether this payment is a recurring payment (cardholder not present)
-    default: false
-  moto:
-    type: boolean
-    description: Indicates whether this payment is a Mail Order or Telephone Order (cardholder not present)
-    default: false
   recipient:
     $ref: '#/definitions/PaymentRecipient'
   destinations:
