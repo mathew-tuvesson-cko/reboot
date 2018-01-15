@@ -19,7 +19,7 @@ post:
     }
     ```
 
-    ### Session Token (Checkout JS, Wallets and Direct Alternative Payment Methods)
+    ### Session Token (Checkout Frames, Wallets and Direct Alternative Payment Methods)
 
     ```
     {
