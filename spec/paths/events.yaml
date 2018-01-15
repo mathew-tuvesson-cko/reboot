@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Events
+  summary: Retrieve events
+  description: Retrieves events ordered by latest first.
+  parameters:
+    - name: from
+      type: string
+      in: query
+      description: Date and time to search from (default = last 6 months)
+    - name: to
+      type: string
+      in: query
+      description: Date and time to search to (default = now)
+    - name: pageSize
+      type: integer
+      in: query
+      description: Max number of results (default = 10)
+  responses:
+    '200':
+      description: All events based on values in request
+      schema:
+        $ref: '#/definitions/EventResult'
+    '204':
+      description: No events found
+    '400':
+      description: Model state invalid
+    '401':
+      description: Unauthorised

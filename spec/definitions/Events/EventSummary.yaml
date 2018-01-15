@@ -1,0 +1,26 @@
+type: object
+properties:
+  event_id:
+    type: string
+    example: az5sblvku4ge3dwpztvyizgcau
+  event_type:
+    type: string
+    example: charge.succeeded
+  created:
+    type: string
+    example: '2017-08-15T17:38:09Z'
+  _links:
+    type: object
+    properties:
+      self:
+        type: object
+        properties:
+          href:
+            type: string
+            example: /broadcast/events/{eventId}
+      retry:
+        type: object
+        properties:
+          href:
+            type: string
+            example: /broadcast/events/{eventId}/retry

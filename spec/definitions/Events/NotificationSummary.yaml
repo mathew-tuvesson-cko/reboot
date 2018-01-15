@@ -1,0 +1,15 @@
+type: object
+properties:
+  endpoint:
+    type: string
+    example: 'https://www.some-endpoint.com'
+  success:
+    type: boolean
+    example: false
+  _links:
+    type: object
+    properties:
+      self:
+        type: string
+        example:
+          href: notifications/{notificationId}

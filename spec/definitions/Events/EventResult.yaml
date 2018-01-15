@@ -1,0 +1,21 @@
+type: object
+properties:
+  total_pages:
+    type: integer
+    example: 1
+    description: Calculated from elasticsearch hits divided by "size" value in request
+  page_size:
+    type: integer
+    example: 1
+    description: The "size" value used in original request
+  from:
+    type: string
+    example: '2017-08-15T17:30:09Z'
+  to:
+    type: string
+    example: '2017-08-15T17:38:09Z'
+    description: The client can use this as their "from" value in their next request
+  data:
+    type: array
+    items:
+      $ref: '#/definitions/EventSummary'

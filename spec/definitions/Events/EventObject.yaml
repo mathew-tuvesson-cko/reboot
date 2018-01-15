@@ -1,0 +1,25 @@
+type: object
+properties:
+  event_id:
+    type: string
+    example: 'evt_az5sblvku4ge3dwpztvyizgcau'
+  event_type:
+    type: string
+    example: charge.succeeded
+  message:
+    $ref: '#/definitions/Message'
+  notifications:
+    type: array
+    items:
+      $ref: '#/definitions/NotificationSummary'
+  _links:
+    type: object
+    properties:
+      self:
+        type: string
+        example:
+          href: /broadcast/events/{eventId}
+      retry:
+        type: string
+        example:
+          href: /broadcast/events/{eventId}/retry

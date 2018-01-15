@@ -1,0 +1,12 @@
+get:
+  tags:
+    - Event Types
+  summary: Retrieve event types
+  description: Retrieve a list of events which are supported by webhooks
+  responses:
+    '200':
+      description: Event found
+      schema:
+        $ref: '#/definitions/EventTypesObject'
+    '401':
+      description: Unauthorized

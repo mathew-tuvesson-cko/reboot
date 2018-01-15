@@ -1,0 +1,20 @@
+get:
+  tags:
+    - Events
+  summary: Retrieve event
+  parameters:
+    - name: eventId
+      required: true
+      type: string
+      in: path
+      description: |
+        The event identifier, for example `evt_387ac7a83a054e37ae140105429d76b6`
+  responses:
+    '200':
+      description: Event found
+      schema:
+        $ref: '#/definitions/EventObject'
+    '404':
+      description: Event not found
+    '401':
+      description: Unauthorised
