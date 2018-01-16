@@ -2,6 +2,7 @@ type: object
 description: Payment response
 required:
   - id
+  - action_id
   - amount
   - currency
   - status
@@ -95,21 +96,21 @@ properties:
       self:
         type: object
         allOf:
-          - $ref: '#/definitions/NewLink'
+          - $ref: '#/definitions/Link'
         description: The URI of the payment
         example:
           href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44"
       capture:
         type: object
         allOf:
-          - $ref: '#/definitions/NewLink'
+          - $ref: '#/definitions/Link'
         description: A link to capture the payment, where applicable
         example:
           href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/capture"
       response-code:
         type: object
         allOf:
-          - $ref: '#/definitions/NewLink'
+          - $ref: '#/definitions/Link'
         description: A link to the full response code details
         example:
           href: "https://api.checkout.com/refs/response-codes/10000"

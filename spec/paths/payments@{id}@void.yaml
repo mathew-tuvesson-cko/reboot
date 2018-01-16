@@ -19,6 +19,13 @@ post:
   responses:
     '200':
       description: Payment was voided
+      schema:
+        $ref: '#/definitions/VoidResponse'
+      headers:
+        Cko-Request-Id:
+          $ref: "#/headers/Cko-Request-Id"
+        Cko-Version:
+          $ref: "#/headers/Cko-Version"
     '401':
       description: Unauthorized
     '422':

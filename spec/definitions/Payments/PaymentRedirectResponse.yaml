@@ -27,14 +27,14 @@ properties:
       self:
         type: object
         allOf:
-          - $ref: '#/definitions/NewLink'
+          - $ref: '#/definitions/Link'
         description: The URI of the payment
         example:
           href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44"
       redirect:
         type: object
         allOf:
-          - $ref: '#/definitions/NewLink'
+          - $ref: '#/definitions/Link'
         description: The URI that the customer should be redirected to, to complete the payment
         example:
           href: "https://api.checkout.com/3ds/pay_y3oqhf46pyzuxjbcn2giaqnb44"
