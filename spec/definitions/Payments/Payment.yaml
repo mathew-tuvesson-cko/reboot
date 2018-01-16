@@ -2,11 +2,10 @@ type: object
 description: Payment response
 required:
   - id
-  - action_id
+  - created_on
   - amount
   - currency
   - status
-  - response_code
   - processed_on
   - _links
 properties:
