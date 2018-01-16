@@ -6,7 +6,6 @@ required:
   - amount
   - currency
   - status
-  - processed_on
   - _links
 properties:
   id:
