@@ -106,7 +106,7 @@ properties:
           - $ref: '#/definitions/Link'
         description: A link to capture the payment, where applicable
         example:
-          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/capture"
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/captures"
       response-code:
         type: object
         allOf:
@@ -116,6 +116,3 @@ properties:
           href: "https://api.checkout.com/refs/response-codes/10000"
     required:
       - self
-          
-        
-    

@@ -1,0 +1,173 @@
+type: object
+description: Payment response
+required:
+  - id
+  - action_id
+  - amount
+  - currency
+  - status
+  - response_code
+  - processed_on
+  - _links
+properties:
+  id:
+    description: Payment unique identifier
+    allOf:
+      - $ref: '#/definitions/PaymentId'
+  created_on: # not sure about created vs requested
+    description: The date/time the payment was created
+    allOf:
+      - $ref: '#/definitions/ServerTimestamp'
+  source:
+    description: The source of the payment
+    type: object
+    allOf:
+      - $ref: '#/definitions/PaymentSource'
+  amount:
+    type: integer
+    description: The original payment amount 
+    example: 6540
+  currency:
+    type: string
+    description: The three-letter ISO currency code of the payment
+    example: USD
+    maxLength: 3
+    minLength: 3
+  payment_type:
+    type: string
+    description: Must be specified for card payments where the cardholder is not present (recurring or Merchant Offline Telephone Order)
+    enum:
+      - Regular
+      - Recurring
+      - MOTO
+    default: Regular
+    example: Recurring
+  reference:
+    type: string
+    description: Your reference for the payment
+    example: ORD-5023-4E89
+  description:
+    type: string
+    description: A description of the payment
+    example: Set of 3 masks
+  status:
+    type: string
+    description: The current status of the payment
+    enum:
+      - Authorised
+      - Voided
+      - Deferred Capture
+      - Captured
+      - Partially Refunded
+      - Refunded
+      - Declined
+  actions:
+    type: array
+    items:
+      - $ref: '#/definitions/PaymentAction'
+    minItems: 1
+    description: |
+      The actions associated with this payment, for example an Authorisation action
+  3ds:
+    type: boolean
+    description: Whether this payment was processed with 3D-Secure
+    default: false
+    example: true
+  3ds_downgraded:
+    type: boolean
+    description: Whether this was a 3DS transaction, downgraded to Non-3DS (when `attempt_n3d` is specified)
+    example: false
+  flagged:
+    type: boolean
+    description: Whether the payment was flagged by a risk check
+    default: false
+    example: true
+  customer:
+    type: object
+    description: The customer to which this payment is linked
+    properties:
+      id:
+        type: string
+        description: The unique identifier of the customer. This can be passed as a source when making a payment
+        example: cus_y3oqhf46pyzuxjbcn2giaqnb44
+      email:
+        type: string
+        description: The customer email address
+        example: jokershere@gmail.com
+      name:
+        type: string
+        description: The customer name
+        example: Jack Napier
+    required:
+      - id
+  billing_descriptor:
+    $ref: '#/definitions/BillingDescriptor'
+  shipping:
+    type: object
+    description: The payment shipping details
+    properties:
+      address:
+        description: The shipping address
+        allOf:
+          - $ref: '#/definitions/Address'
+      phone:
+        description: The phone number associated with the shipping address
+        allOf:
+          - $ref: '#/definitions/PhoneNumber'
+  payment_ip:
+    description: The IP address used to make the payment
+    allOf:
+      - $ref: '#/definitions/IPAddress'
+  recipient:
+    $ref: '#/definitions/PaymentRecipient'
+  destinations:
+    type: array
+    items:
+      - $ref: '#/definitions/PaymentDestination'
+    minItems: 0
+    description: |
+      For OpenPay payments, destinations determine the proportion of the payment amount credited to other OpenPay accounts
+  metadata:
+    type: object
+    description: Set of key/value pairs that you can attach to a payment. It can be useful for storing additional information in a structured format
+    example:
+      coupon_code: "NY2018"
+      partner_id: 123989
+  _links:
+    type: object
+    description: The links related to the payment
+    minItems: 1
+    properties:
+      self:
+        type: object
+        allOf:
+          - $ref: '#/definitions/Link'
+        description: The URI of the payment
+        example:
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44"
+      void:
+        type: object
+        allOf:
+          - $ref: '#/definitions/Link'
+        description: A link to void the payment, where applicable
+        example:
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/void"
+      capture:
+        type: object
+        allOf:
+          - $ref: '#/definitions/Link'
+        description: A link to capture the payment, where applicable
+        example:
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/captures"
+      refund:
+        type: object
+        allOf:
+          - $ref: '#/definitions/Link'
+        description: A link to refund the payment, where applicable
+        example:
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/refunds"
+    required:
+      - self
+          
+        
+    

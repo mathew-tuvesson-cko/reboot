@@ -10,9 +10,17 @@ get:
       type: string
       required: true
       description: The payment identifier
+      pattern: "^(pay)_(\\w{26})$"
   responses:
     '200':
       description: Payment was retrieved successfully
+      schema:
+        $ref: '#/definitions/Payment'
+      headers:
+        Cko-Request-Id:
+          $ref: "#/headers/Cko-Request-Id"
+        Cko-Version:
+          $ref: "#/headers/Cko-Version"
     '401':
       description: Unauthorized
     '404':
