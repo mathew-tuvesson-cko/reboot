@@ -1,0 +1,29 @@
+post:
+  tags:
+    - Payments
+  summary: Refund a payment
+  description: |
+    Refunds a payment if supported by the payment method
+  parameters:
+    - in: path
+      name: id
+      type: string
+      required: true
+      description: The payment identifier
+      pattern: "^(pay)_(\\w{26})$"
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/RefundRequest'
+  responses:
+    '200':
+      description: Payment was refunded or partially refunded successfully
+    '401':
+      description: Unauthorized
+    '422':
+      $ref: '#/responses/InvalidDataError'
+    '403':
+      description: Refund not allowed
+    '404':
+      description: Payment not found

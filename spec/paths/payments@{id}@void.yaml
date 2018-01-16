@@ -1,0 +1,29 @@
+post:
+  tags:
+    - Payments
+  summary: Void a payment
+  description: |
+    Voids a payment if supported by the payment method. 
+  parameters:
+    - in: path
+      name: id
+      type: string
+      required: true
+      description: The payment identifier
+      pattern: "^(pay)_(\\w{26})$"
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/VoidRequest'
+  responses:
+    '200':
+      description: Payment was voided
+    '401':
+      description: Unauthorized
+    '422':
+      $ref: '#/responses/InvalidDataError'
+    '403':
+      description: Void not allowed
+    '404':
+      description: Payment not found

@@ -1,0 +1,29 @@
+post:
+  tags:
+    - Payments
+  summary: Capture a payment
+  description: |
+    Captures a payment if supported by the payment method
+  parameters:
+    - in: path
+      name: id
+      type: string
+      required: true
+      description: The payment identifier
+      pattern: "^(pay)_(\\w{26})$"
+    - name: body
+      in: body
+      required: true
+      schema:
+        $ref: '#/definitions/CaptureRequest'
+  responses:
+    '200':
+      description: Payment was captured successfully
+    '401':
+      description: Unauthorized
+    '403':
+      description: Capture not allowed
+    '422':
+      $ref: '#/responses/InvalidDataError'
+    '404':
+      description: Payment not found

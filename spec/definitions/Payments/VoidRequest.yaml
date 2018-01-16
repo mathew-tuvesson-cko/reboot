@@ -1,0 +1,6 @@
+type: object
+properties:
+  reference:
+    type: string
+    description: A reference you can later use to identify this void request
+    example: ORD-5023-4E89
