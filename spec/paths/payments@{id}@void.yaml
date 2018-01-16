@@ -1,9 +1,9 @@
 post:
   tags:
     - Payments
-  summary: Refund a payment
+  summary: Void a payment
   description: |
-    Refunds a payment if supported by the payment method
+    Voids a payment if supported by the payment method. 
   parameters:
     - in: path
       name: id
@@ -15,15 +15,15 @@ post:
       in: body
       required: true
       schema:
-        $ref: '#/definitions/RefundRequest'
+        $ref: '#/definitions/VoidRequest'
   responses:
     '200':
-      description: Payment was refunded or partially refunded successfully
+      description: Payment was voided
     '401':
       description: Unauthorized
     '422':
       $ref: '#/responses/InvalidDataError'
     '403':
-      description: Refund not allowed
+      description: Void not allowed
     '404':
       description: Payment not found

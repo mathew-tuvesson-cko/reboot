@@ -21,6 +21,8 @@ post:
       description: Payment was captured successfully
     '401':
       description: Unauthorized
+    '403':
+      description: Capture not allowed
     '422':
       $ref: '#/responses/InvalidDataError'
     '404':
