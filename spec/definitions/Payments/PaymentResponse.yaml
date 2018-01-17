@@ -91,7 +91,10 @@ properties:
   _links:
     type: object
     description: The links related to the payment
-    minItems: 1
+    minItems: 2
+    required:
+      - self
+      - actions
     properties:
       self:
         type: object
@@ -100,6 +103,20 @@ properties:
         description: The URI of the payment
         example:
           href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44"
+      actions:
+        type: object
+        allOf:
+          - $ref: '#/definitions/Link'
+        description: A link to the payment's associated actions
+        example:
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/actions"
+      void:
+        type: object
+        allOf:
+          - $ref: '#/definitions/Link'
+        description: A link to void the payment, where applicable
+        example:
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/void"
       capture:
         type: object
         allOf:
@@ -114,5 +131,3 @@ properties:
         description: A link to the full response code details
         example:
           href: "https://api.checkout.com/refs/response-codes/10000"
-    required:
-      - self
