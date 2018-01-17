@@ -4,6 +4,8 @@ post:
   summary: Void a payment
   description: |
     Voids a payment if supported by the payment method. 
+
+    For card payments, void requests are processed asynchronously. You can use [webhooks](#tag/Webhooks) to be notified if the void is successful.
   parameters:
     - in: path
       name: id
@@ -17,10 +19,10 @@ post:
       schema:
         $ref: '#/definitions/VoidRequest'
   responses:
-    '201':
-      description: Void processed successfully
+    '202':
+      description: Void accepted
       schema:
-        $ref: '#/definitions/VoidResponse'
+        $ref: '#/definitions/VoidAcceptedResponse'
       headers:
         Cko-Request-Id:
           $ref: "#/headers/Cko-Request-Id"

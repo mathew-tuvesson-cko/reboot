@@ -1,5 +1,5 @@
 type: object
-description: Payment response
+description: Capture response
 required:
   - action_id
 properties:
@@ -28,7 +28,7 @@ properties:
         type: object
         allOf:
           - $ref: '#/definitions/Link'
-        description: The URI that the customer should be redirected to, to complete the capture
+        description: For some alternative payments, the URI that the customer should be redirected to, to complete the capture
         example:
           href: "https://api.checkout.com/redirect/act_y3oqhf46pyzuxjbcn2giaqnb44"
     required:

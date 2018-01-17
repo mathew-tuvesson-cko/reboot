@@ -137,36 +137,35 @@ properties:
         allOf:
           - $ref: '#/definitions/Link'
         description: The URI of the payment
-        example:
-          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44"
       actions:
         type: object
         allOf:
           - $ref: '#/definitions/Link'
         description: A link to the payment's associated actions
-        example:
-          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/actions"
       void:
         type: object
         allOf:
           - $ref: '#/definitions/Link'
         description: A link to void the payment, where applicable
-        example:
-          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/voids"
       capture:
         type: object
         allOf:
           - $ref: '#/definitions/Link'
         description: A link to capture the payment, where applicable
-        example:
-          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/captures"
       refund:
         type: object
         allOf:
           - $ref: '#/definitions/Link'
         description: A link to refund the payment, where applicable
-        example:
-          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/refunds"
+    example:
+      self:
+        href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44"
+      actions: 
+        href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/actions"
+      refund:
+        href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/refund"
+      response-code:
+        href: "https://api.checkout.com/refs/response-codes/10000"
           
         
     

@@ -5,8 +5,8 @@ get:
   description: |
     Retrieves the payment source with the specified identifier string.
 
-    For alternative payment sources, for example, SEPA Direct Debit mandates, additional links may be included that provide
-    access to APM specific data and/or functionality.
+    Some alternative payment sources such as SEPA may include additional links that provide
+    access to AP specific data and/or functionality.
   parameters:
     - in: path
       name: id

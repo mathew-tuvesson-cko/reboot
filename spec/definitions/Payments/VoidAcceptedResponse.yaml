@@ -1,19 +1,19 @@
 type: object
-description: Refund response
+description: Void response
 required:
   - action_id
 properties:
   action_id:
-    description: The unique identifier for the refund action
+    description: The unique identifier for the void action
     allOf:
       - $ref: '#/definitions/ActionId'
   reference:
     type: string
-    description: Your reference for the refund request
+    description: Your reference for the void request
     example: ORD-5023-4E89
   _links:
     type: object
-    description: Refund links
+    description: Void links
     readOnly: true
     minItems: 2
     properties:
