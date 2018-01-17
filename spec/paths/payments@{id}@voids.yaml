@@ -17,8 +17,8 @@ post:
       schema:
         $ref: '#/definitions/VoidRequest'
   responses:
-    '200':
-      description: Payment was voided
+    '201':
+      description: Void processed successfully
       schema:
         $ref: '#/definitions/VoidResponse'
       headers:
