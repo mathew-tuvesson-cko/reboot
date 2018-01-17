@@ -152,7 +152,7 @@ properties:
           - $ref: '#/definitions/Link'
         description: A link to void the payment, where applicable
         example:
-          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/void"
+          href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/voids"
       capture:
         type: object
         allOf:
