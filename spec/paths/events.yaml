@@ -2,28 +2,41 @@ get:
   tags:
     - Events
   summary: Retrieve events
-  description: Retrieves events ordered by latest first.
+  description: Retrieves events ordered by the event date in descending order (latest first). Results can be paged by specifying the `skip` and `limit` query parameters.
   parameters:
     - name: from
-      type: string
       in: query
-      description: Date and time to search from (default = last 6 months)
+      type: string
+      format: date-time
+      description: An ISO8601 formatted date and time to search from (default = last 6 months)
+      example: "2018-01-01T00:00:00Z"
     - name: to
+      in: query
       type: string
+      format: date-time
+      description: An ISO8601 formatted date and time to search to (default = now)
+      example: "2018-01-15T12:00:00Z"
+    - name: limit
       in: query
-      description: Date and time to search to (default = now)
-    - name: pageSize
       type: integer
+      description: The number of events to return per page
+      default: 10
+      minimum: 1
+      maximum: 100
+    - name: skip
       in: query
-      description: Max number of results (default = 10)
+      type: integer
+      description: The number of events to skip
+      default: 0
+      minimum: 0
   responses:
     '200':
-      description: All events based on values in request
+      description: Events retrieved successfully
       schema:
         $ref: '#/definitions/EventResult'
     '204':
       description: No events found
-    '400':
-      description: Model state invalid
     '401':
       description: Unauthorised
+    '422':
+      $ref: '#/responses/InvalidDataError'

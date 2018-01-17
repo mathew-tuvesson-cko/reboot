@@ -1,27 +1,27 @@
 get:
   tags:
     - Events
-  summary: Retrieve notification attempts
-  description: Retrieves the notification attempts breakdown for an event
+  summary: Retrieve event notification
+  description: Retrieves the attempts for a specific event notification
   parameters:
-    - name: eventId
-      required: true
+    - in: path
+      name: eventId
       type: string
-      in: path
-      description: |
-        The event identifier, for example `evt_387ac7a83a054e37ae140105429d76b6`
-    - name: notificationId
       required: true
+      description: The event identifier
+      pattern: "^(evt)_(\\w{26})$"
+    - in: path
+      name: notificationId
       type: string
-      in: path
-      description: |
-        The notification identifier, for example `ntf_387ac7a83a054e37ae140105429d76b7`
+      required: true
+      description: The notification identifier
+      pattern: "^(ntf)_(\\w{26})$"
   responses:
     '200':
-      description: Notification breakdown found
+      description: Notification retrieved successfully
       schema:
         $ref: '#/definitions/Notification'
-    '404':
-      description: Event or notification not found
     '401':
       description: Unauthorised
+    '404':
+      description: Event or notification not found

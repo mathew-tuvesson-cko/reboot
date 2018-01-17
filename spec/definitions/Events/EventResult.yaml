@@ -1,20 +1,27 @@
 type: object
 properties:
-  total_pages:
+  total_count:
     type: integer
-    example: 1
-    description: Calculated from elasticsearch hits divided by "size" value in request
-  page_size:
+    example: 100
+    description: The total number of events
+  limit:
     type: integer
-    example: 1
-    description: The "size" value used in original request
+    description: The `limit` query parameter
+    example: 10
+  skip:
+    type: integer
+    example: 10
+    description: The `skip` query parameter
   from:
     type: string
-    example: '2017-08-15T17:30:09Z'
+    format: date-time
+    description: The `from` query parameter
+    example: "2018-01-01T00:00:00Z"
   to:
     type: string
-    example: '2017-08-15T17:38:09Z'
-    description: The client can use this as their "from" value in their next request
+    format: date-time
+    example: "2018-01-15T12:00:00Z"
+    description: The `to` query parameter
   data:
     type: array
     items:

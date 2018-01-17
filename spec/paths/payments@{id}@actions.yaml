@@ -3,7 +3,7 @@ get:
     - Payments
   summary: Retrieve a payment's actions
   description: |
-    Retrieves all the actions associated with an action ordered by processing date in descending order (newest first).
+    Retrieves all the actions associated with an action ordered by processing date in descending order (latest first).
   parameters:
     - in: path
       name: id

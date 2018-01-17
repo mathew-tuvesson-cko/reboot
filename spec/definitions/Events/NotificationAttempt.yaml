@@ -2,13 +2,20 @@ type: object
 properties:
   status_code:
     type: integer
+    description: The HTTP status code returned from the target server
     example: 400
   response_body:
     type: string
+    description: The response body returned from the target server
     example: Bad Request
   retry_mode:
     type: string
-    example: System or Manual
+    description: Whether the notification was sent automatically or requested manually
+    enum:
+      - Automatic
+      - Manual
   timestamp:
     type: string
-    example: '2017-07-15T12:00:00.500Z'
+    description: The date/time the attempt was made
+    allOf:
+      - $ref: '#/definitions/ServerTimestamp'

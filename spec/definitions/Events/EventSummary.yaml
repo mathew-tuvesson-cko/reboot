@@ -1,26 +1,18 @@
 type: object
 properties:
-  event_id:
+  id:
     type: string
-    example: az5sblvku4ge3dwpztvyizgcau
+    maxLength: 30
+    minLength: 30
+    description: The event identifier
+    example: evt_az5sblvku4ge3dwpztvyizgcau
   event_type:
     type: string
+    description: The event type
     example: charge.succeeded
-  created:
-    type: string
-    example: '2017-08-15T17:38:09Z'
+  created_on:
+    description: The date/time the event occurred
+    allOf:
+      - $ref: '#/definitions/ServerTimestamp'
   _links:
-    type: object
-    properties:
-      self:
-        type: object
-        properties:
-          href:
-            type: string
-            example: /broadcast/events/{eventId}
-      retry:
-        type: object
-        properties:
-          href:
-            type: string
-            example: /broadcast/events/{eventId}/retry
+    $ref: '#/definitions/EventLinks'

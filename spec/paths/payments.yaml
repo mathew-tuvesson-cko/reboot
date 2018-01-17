@@ -61,7 +61,7 @@ post:
         $ref: '#/definitions/PaymentRequest'
   responses:
     '201':
-      description: Payment was processed successfully
+      description: Payment processed successfully
       schema:
         $ref: '#/definitions/PaymentResponse'
       headers:
@@ -70,7 +70,7 @@ post:
         Cko-Version:
           $ref: "#/headers/Cko-Version"
     '202':
-      description: Payment was accepted but requires input from the owner
+      description: Payment accepted but requires input from the owner
       schema:
         $ref: '#/definitions/PaymentRedirectResponse'
       headers:

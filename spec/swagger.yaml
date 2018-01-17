@@ -51,9 +51,8 @@ x-tagGroups:
   - name: Gateway
     tags:
       - Payments
-      - Events
-      - Event Types
       - Sources
+      - Events
       - Webhooks
 tags:
   - name: Payments

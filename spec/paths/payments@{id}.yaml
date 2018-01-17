@@ -13,7 +13,7 @@ get:
       pattern: "^(pay)_(\\w{26})$"
   responses:
     '200':
-      description: Payment was retrieved successfully
+      description: Payment retrieved successfully
       schema:
         $ref: '#/definitions/Payment'
       headers:

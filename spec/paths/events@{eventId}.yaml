@@ -2,19 +2,21 @@ get:
   tags:
     - Events
   summary: Retrieve event
+  description: |
+    Retrieves the event with the specified identifier string. The event `message` includes the full event details, the schema of which will vary based on the `event_type`.
   parameters:
-    - name: eventId
-      required: true
+    - in: path
+      name: eventId
       type: string
-      in: path
-      description: |
-        The event identifier, for example `evt_387ac7a83a054e37ae140105429d76b6`
+      required: true
+      description: The event identifier
+      pattern: "^(evt)_(\\w{26})$"
   responses:
     '200':
-      description: Event found
+      description: Event retrieved successfully
       schema:
         $ref: '#/definitions/EventObject'
-    '404':
-      description: Event not found
     '401':
       description: Unauthorised
+    '404':
+      description: Event not found

@@ -1,0 +1,15 @@
+type: object
+properties:
+  events:
+    type: array
+    items:
+      type: string
+    example:
+      - charge.succeeded
+      - charge.failed
+      - charge.voided
+      - charge.voided.failed
+      - charge.captured
+      - charge.captured.failed
+      - charge.refunded
+      - charge.refunded.failed
