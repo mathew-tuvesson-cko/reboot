@@ -2,25 +2,28 @@ type: object
 description: Payment response
 required:
   - id
-  - action_id
+  - created_on
   - amount
   - currency
   - status
-  - response_code
-  - processed_on
   - _links
 properties:
   id:
     description: Payment unique identifier
     allOf:
       - $ref: '#/definitions/PaymentId'
-  action_id:
-    description: The unique identifier for the action performed against this payment
+  created_on: # not sure about created vs requested
+    description: The date/time the payment was created
     allOf:
-      - $ref: '#/definitions/ActionId'
+      - $ref: '#/definitions/ServerTimestamp'
+  source:
+    description: The source of the payment
+    type: object
+    allOf:
+      - $ref: '#/definitions/PaymentSource'
   amount:
     type: integer
-    description: The payment amount 
+    description: The original payment amount 
     example: 6540
   currency:
     type: string
@@ -28,40 +31,48 @@ properties:
     example: USD
     maxLength: 3
     minLength: 3
+  payment_type:
+    type: string
+    description: Must be specified for card payments where the cardholder is not present (recurring or Merchant Offline Telephone Order)
+    enum:
+      - Regular
+      - Recurring
+      - MOTO
+    default: Regular
+    example: Recurring
+  reference:
+    type: string
+    description: Your reference for the payment
+    example: ORD-5023-4E89
+  description:
+    type: string
+    description: A description of the payment
+    example: Set of 3 masks
   status:
     type: string
-    description: The status of the payment
+    description: The current status of the payment
     enum:
       - Authorised
+      - Voided
       - Deferred Capture
       - Captured
+      - Partially Refunded
+      - Refunded
       - Declined
-  auth_code:
-    type: string
-    description: The acquirer authorisation code if the payment was Authorised
-    example: "643381"
-  response_code:
-    type: string
-    description: Gateway response code
-    example: "10000"
-  response_summary:
-    type: string
-    description: The Gateway response summary
-    example: "Approved"
-  flagged:
+  3ds:
     type: boolean
-    description: Whether the payment was flagged by a risk check
+    description: Whether this payment was processed with 3D-Secure
     default: false
     example: true
   3ds_downgraded:
     type: boolean
     description: Whether this was a 3DS transaction, downgraded to Non-3DS (when `attempt_n3d` is specified)
     example: false
-  source:
-    description: The source of the payment
-    type: object
-    allOf:
-      - $ref: '#/definitions/PaymentSource'
+  flagged:
+    type: boolean
+    description: Whether the payment was flagged by a risk check
+    default: false
+    example: true
   customer:
     type: object
     description: The customer to which this payment is linked
@@ -80,14 +91,39 @@ properties:
         example: Jack Napier
     required:
       - id
-  processed_on:
-    description: The date/time the payment was processed
+  billing_descriptor:
+    $ref: '#/definitions/BillingDescriptor'
+  shipping:
+    type: object
+    description: The payment shipping details
+    properties:
+      address:
+        description: The shipping address
+        allOf:
+          - $ref: '#/definitions/Address'
+      phone:
+        description: The phone number associated with the shipping address
+        allOf:
+          - $ref: '#/definitions/PhoneNumber'
+  payment_ip:
+    description: The IP address used to make the payment
     allOf:
-      - $ref: '#/definitions/ServerTimestamp'
-  reference:
-    type: string
-    description: Your reference for the payment
-    example: ORD-5023-4E89
+      - $ref: '#/definitions/IPAddress'
+  recipient:
+    $ref: '#/definitions/PaymentRecipient'
+  destinations:
+    type: array
+    items:
+      - $ref: '#/definitions/PaymentDestination'
+    minItems: 0
+    description: |
+      For OpenPay payments, destinations determine the proportion of the payment amount credited to other OpenPay accounts
+  metadata:
+    type: object
+    description: Set of key/value pairs that you can attach to a payment. It can be useful for storing additional information in a structured format
+    example:
+      coupon_code: "NY2018"
+      partner_id: 123989
   _links:
     type: object
     description: The links related to the payment
@@ -121,19 +157,15 @@ properties:
         allOf:
           - $ref: '#/definitions/Link'
         description: A link to refund the payment, where applicable
-      response-code:
-        type: object
-        allOf:
-          - $ref: '#/definitions/Link'
-        description: A link to the full response code details
     example:
       self:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44"
       actions: 
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/actions"
-      void:
-        href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/voids"
-      capture:
-        href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/capture"
+      refund:
+        href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/refund"
       response-code:
         href: "https://api.checkout.com/refs/response-codes/10000"
+          
+        
+    

@@ -1,9 +1,9 @@
 get:
   tags:
     - Payments
-  summary: Retrieve a payment
+  summary: Retrieve a payment's actions
   description: |
-    Retrieves the payment with the specified identifier string
+    Retrieves all the actions associated with an action ordered by processing date in descending order (newest first).
   parameters:
     - in: path
       name: id
@@ -13,9 +13,9 @@ get:
       pattern: "^(pay)_(\\w{26})$"
   responses:
     '200':
-      description: Payment was retrieved successfully
+      description: Payment actions retrieved successfully
       schema:
-        $ref: '#/definitions/Payment'
+        $ref: '#/definitions/PaymentActionsResponse'
       headers:
         Cko-Request-Id:
           $ref: "#/headers/Cko-Request-Id"
