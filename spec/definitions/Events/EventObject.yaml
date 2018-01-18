@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    $ref: '#/definitions/EventId'
+  event_type:
+    type: string
+    description: The event type
+    example: charge.succeeded
+  created_on:
+    description: The date/time the event occurred
+    allOf:
+      - $ref: '#/definitions/ServerTimestamp'
+  message:
+    $ref: '#/definitions/Message'
+  notifications:
+    type: array
+    description: The notifications (e.g. webhooks) that have been sent for the event
+    items:
+      $ref: '#/definitions/NotificationSummary'
+  _links:
+    $ref: '#/definitions/EventLinks'

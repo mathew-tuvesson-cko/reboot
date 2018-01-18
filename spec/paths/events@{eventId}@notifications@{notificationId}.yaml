@@ -1,0 +1,27 @@
+get:
+  tags:
+    - Events
+  summary: Retrieve event notification
+  description: Retrieves the attempts for a specific event notification
+  parameters:
+    - in: path
+      name: eventId
+      type: string
+      required: true
+      description: The event identifier
+      pattern: "^(evt)_(\\w{26})$"
+    - in: path
+      name: notificationId
+      type: string
+      required: true
+      description: The notification identifier
+      pattern: "^(ntf)_(\\w{26})$"
+  responses:
+    '200':
+      description: Notification retrieved successfully
+      schema:
+        $ref: '#/definitions/Notification'
+    '401':
+      description: Unauthorised
+    '404':
+      description: Event or notification not found
