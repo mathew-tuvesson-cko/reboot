@@ -52,6 +52,8 @@ x-tagGroups:
     tags:
       - Payments
       - Sources
+  - name: Broadcast
+    tags:
       - Events
       - Webhooks
 tags:
