@@ -5,31 +5,9 @@ post:
   description: |
     Request a payment from a new or existing source. 
 
-    #### Full Card (PCI Compliant Merchants)
-
-    ```
-    {
-      "source": {
-        "number": "4543474002249996",
-        "expiry_month": 6,
-        "expiry_year": 2025,
-        "name": "Bruce Wayne",
-        "cvv": "956"
-      }
-    }
-    ```
-
-    ### Session Token (Checkout Frames, Wallets and Direct Alternative Payment Methods)
-
-    ```
-    {
-      "source": {
-        "token": "tok_ubfj2q76miwundwlk72vxt2i7q"
-      }
-    }
-    ```
-
     ### Payment Source
+
+    To use an existing payment source such as a card or SEPA mandate, provide the source identifier.
 
     ```
     {
@@ -39,12 +17,62 @@ post:
     }
     ```
 
-    ### Customer
+    #### Full Card (PCI Compliant Merchants)
 
     ```
     {
       "source": {
-        "id": "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+        "card": {
+          "number": "4543474002249996",
+          "expiry_month": 6,
+          "expiry_year": 2025,
+          "name": "Bruce Wayne",
+          "cvv": "956"
+        }
+      }
+    }
+    ```
+
+    ### Card Token (Checkout Frames and Digital Wallets)
+
+    ```
+    {
+      "source": {
+        "token": {
+          "id": "tok_ubfj2q76miwundwlk72vxt2i7q",
+          "billing_address": {
+            // ...
+          }
+        }
+      }
+    }
+    ```
+
+    ### Customer
+
+    When a customer source is specified we will use the customer's default card source for the payment. 
+    You can also provide the customer's email address if the customer identifier is unknown.
+
+    ```
+    {
+      "source": {
+        "customer": {
+          "id": "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+        }
+      }
+    }
+    ```
+
+    ### Alternative Payments
+
+    To use an Alternative Payment as a source provide an object for the appropriate Alternative Payment name. This can also include any additional data as required by the Alternative Payment method.
+
+    ```
+    {
+      "source": {
+        "ideal": {
+          "issuer_id": "xxx"
+        }
       }
     }
     ```

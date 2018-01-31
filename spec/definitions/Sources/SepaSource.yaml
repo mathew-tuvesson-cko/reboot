@@ -3,6 +3,8 @@ description: A SEPA payment source
 allOf:
   - $ref: '#/definitions/SourceRequest'
   - type: object
+    required:
+      - sepa
     properties:
       source_type:
         type: string
