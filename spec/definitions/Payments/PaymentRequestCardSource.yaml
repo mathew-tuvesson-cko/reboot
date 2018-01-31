@@ -49,4 +49,3 @@ allOf:
           - number
           - expiry_month
           - expiry_year
-          - source_type
