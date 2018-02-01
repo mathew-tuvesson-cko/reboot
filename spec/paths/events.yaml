@@ -9,13 +9,11 @@ get:
       type: string
       format: date-time
       description: An ISO8601 formatted date and time to search from (default = last 6 months)
-      example: "2018-01-01T00:00:00Z"
     - name: to
       in: query
       type: string
       format: date-time
       description: An ISO8601 formatted date and time to search to (default = now)
-      example: "2018-01-15T12:00:00Z"
     - name: limit
       in: query
       type: integer

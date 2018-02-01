@@ -1,12 +1,12 @@
 type: object
 required:
-  - source_type
+  - type
 properties:
   id: 
     type: string
     description: The unique identifier of the payment source that can be later used for payments
     example: src_y3oqhf46pyzuxjbcn2giaqnb44
-  source_type:
+  type:
     type: string
     description: The payment source type
     example: "sepa"

@@ -1,5 +1,5 @@
 type: object
-description: Payment response
+description: Payment Response
 required:
   - id
   - action_id

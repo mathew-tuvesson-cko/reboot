@@ -4,11 +4,11 @@ allOf:
   - $ref: '#/definitions/AddSourceResponse'
   - type: object
     properties:
-      source_type:
+      type:
         type: string
         enum:
           - sepa
-      sepa:
+      source_data:
         type: object
         description: SEPA direct debit details
         properties:
