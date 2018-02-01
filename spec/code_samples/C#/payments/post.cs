@@ -1,18 +1,7 @@
 var client = new GatewayApiClient(apiKey);
-
-var response = await client.Payments.RequestAsync(
-    new PaymentRequest<CardSource> 
-    {
-        Amount = 6450,
-        Currency = "USD",
-        Capture = false,
-        Source = new CardSource 
-        {
-            Number = "4543474002249996",
-            ExpiryMonth = 6,
-            ExpiryYear = 2018,
-            Name = "Bruce Wayne",
-            Cvv = "956"
-        }
-    }
-);
+var response = await client.Payments.RequestAsync(new PaymentRequest {
+    Amount = 6450,
+    Currency = "USD",
+    Source = "src_3cdac40561494c5aaa8f8c81ef245c10",
+    Capture = false
+});

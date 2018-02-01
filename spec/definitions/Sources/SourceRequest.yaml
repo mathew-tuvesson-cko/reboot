@@ -1,7 +1,9 @@
 type: object
-x-extendedDiscriminator: source_type
+required:
+  - type
+x-extendedDiscriminator: type
 properties:
-  source_type:
+  type:
     type: string
     description: The payment source type
     example: "sepa"

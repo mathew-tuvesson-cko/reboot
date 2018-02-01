@@ -1,8 +1,10 @@
 type: object
 description: The source of the payment
-x-extendedDiscriminator: source_type
+x-extendedDiscriminator: type
+required:
+  - type
 properties:
-  source_type:
+  type:
     type: string
     description: The payment source type. With the exception of some alternative payment methods, the `source_type` will be inferred automatically
     default: "card"
