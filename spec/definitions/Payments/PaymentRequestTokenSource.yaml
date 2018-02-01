@@ -12,21 +12,15 @@ allOf:
         enum:
           - token
       token:
-        type: object
-        required:
-          - id
-        properties:
-          id:
-            type: string
-            description: The Checkout token for example a card, wallet or alternative payment token 
-            example: tok_ubfj2q76miwundwlk72vxt2i7q
-          billing_address:
-            description: The payment source owner's billing address. This will override the billing address specified during tokenisation
-            allOf:
-              - $ref: '#/definitions/Address'
-          phone:
-            description: The payment source owner's phone number. This will override the phone number specified during tokenisation
-            allOf:
-              - $ref: '#/definitions/PhoneNumber'
-              
+        type: string
+        description: The Checkout token for example a card, wallet or alternative payment token 
+        example: tok_ubfj2q76miwundwlk72vxt2i7q
+      billing_address:
+        description: The payment source owner's billing address. This will override the billing address specified during tokenisation
+        allOf:
+          - $ref: '#/definitions/Address'
+      phone:
+        description: The payment source owner's phone number. This will override the phone number specified during tokenisation
+        allOf:
+          - $ref: '#/definitions/PhoneNumber'
 

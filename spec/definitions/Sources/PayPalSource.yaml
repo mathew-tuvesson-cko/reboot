@@ -1,0 +1,37 @@
+type: object
+description: A PayPal billing agreement source
+allOf:
+  - $ref: '#/definitions/SourceRequest'
+  - type: object
+    properties:
+      source_type:
+        type: string
+        enum:
+          - paypal
+      paypal:
+        type: object
+        description: Additional data required to create PayPal billing agreements
+        properties:
+          name:
+            type: string
+            description: The agreement name
+            example: "Pro Account Plan Agreement"
+          description:
+            type: string
+            description: The agreement description
+            maxLength: 128
+          start_date:
+            type: integer
+            format: int64
+            description: A unix-timestamp when the agreement begins
+            example: 1509117457
+          email:
+            type: string
+            format: email
+            description: The payer's email address
+            example: darkknight@batcave.com
+        required:
+          - name
+          - description
+          - start_date
+          - email

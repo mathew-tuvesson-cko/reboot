@@ -4,25 +4,27 @@ get:
   summary: Retrieve events
   description: Retrieves events ordered by the event date in descending order (latest first). Results can be paged by specifying the `skip` and `limit` query parameters.
   parameters:
-    - in: query
-      name: from
+    - name: from
+      in: query
       type: string
       format: date-time
       description: An ISO8601 formatted date and time to search from (default = last 6 months)
-    - in: query
-      name: to
+      example: "2018-01-01T00:00:00Z"
+    - name: to
+      in: query
       type: string
       format: date-time
       description: An ISO8601 formatted date and time to search to (default = now)
-    - in: query
-      name: limit
+      example: "2018-01-15T12:00:00Z"
+    - name: limit
+      in: query
       type: integer
       description: The number of events to return per page
       default: 10
       minimum: 1
       maximum: 100
-    - in: query
-      name: skip
+    - name: skip
+      in: query
       type: integer
       description: The number of events to skip
       default: 0
