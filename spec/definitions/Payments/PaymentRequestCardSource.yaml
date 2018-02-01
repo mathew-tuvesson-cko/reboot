@@ -3,6 +3,11 @@ description: A card payment source
 allOf:
   - $ref: "#/definitions/PaymentRequestSource"
   - type: object
+    required:
+      - type
+      - number
+      - expiry_month
+      - expiry_year
     properties:
       type:
         type: string
@@ -40,8 +45,3 @@ allOf:
         description: The payment source owner's phone number
         allOf:
           - $ref: '#/definitions/PhoneNumber'
-    required:
-      - number
-      - expiry_month
-      - expiry_year
-      - source_type
