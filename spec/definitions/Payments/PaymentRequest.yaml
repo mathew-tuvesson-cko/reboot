@@ -42,8 +42,9 @@ properties:
     default: true
     example: true
   capture_on:
-    description: An ISO 8601 timestamp that determines when the payment should be captured. 
-    Providing this field will automatically set `capture` to true.
+    description: |
+      An ISO 8601 timestamp that determines when the payment should be captured. 
+      Providing this field will automatically set `capture` to true.
 
     allOf:
       - $ref: '#/definitions/Timestamp'
