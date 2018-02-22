@@ -52,6 +52,12 @@ properties:
     type: object
     description: Details of the customer associated with the payment
     properties:
+      id:
+        type: string
+        description: | 
+          The identifier of an existing customer. If neither customer `id` or `email` is provided
+          a new customer will be registered
+        example: cus_y3oqhf46pyzuxjbcn2giaqnb44
       email:
         type: string
         format: email
