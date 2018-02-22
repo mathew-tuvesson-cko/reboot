@@ -1,0 +1,10 @@
+type: object
+properties:
+  token:
+    type: string
+    description: The reference token
+    example: tok_ubfj2q76miwundwlk72vxt2i7q
+  expires_on:
+    description: The date/time the token will expire
+    allOf:
+      - $ref: '#/definitions/ServerTimestamp'
