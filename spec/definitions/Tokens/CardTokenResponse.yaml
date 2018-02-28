@@ -1,8 +1,13 @@
 type: object
+description: Card Token Response
 allOf:
-  - $ref: '#/definitions/TokenizeResponse'
+  - $ref: '#/definitions/TokenResponse'
   - type: object
     properties:
+      type:
+        type: string
+        enum:
+          - card
       billing_address:
         description: The payment source owner's billing address
         allOf:

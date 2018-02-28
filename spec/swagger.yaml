@@ -51,7 +51,7 @@ x-tagGroups:
   - name: Gateway
     tags:
       - Payments
-      - Tokenization
+      - Tokens
       - Sources
       - Events
       - Webhooks

@@ -1,12 +1,17 @@
 type: object
-description: Tokenize a card
+description: Card Token Request
 allOf:
+  - $ref: '#/definitions/TokenRequest'
   - type: object
     required:
       - number
       - expiry_month
       - expiry_year
     properties:
+      type:
+        type: string
+        enum:
+          - card
       number:
         type: string
         description: The card number
