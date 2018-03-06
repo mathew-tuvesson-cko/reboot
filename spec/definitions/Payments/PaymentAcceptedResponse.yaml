@@ -3,6 +3,7 @@ description: Payment response
 required:
   - id
   - status
+  - customer
 properties:
   id:
     description: Payment unique identifier
@@ -18,6 +19,11 @@ properties:
     type: string
     description: Your reference for the payment request
     example: ORD-5023-4E89
+  customer:
+    type: object
+    description: The customer to which this payment is linked
+    allOf:
+      - $ref: '#/definitions/PaymentResponseCustomer'
   _links:
     type: object
     description: Payment links

@@ -116,7 +116,7 @@ post:
     '202':
       description: Payment asynchronous or further action required
       schema:
-        $ref: '#/definitions/PaymentRedirectResponse'
+        $ref: '#/definitions/PaymentAcceptedResponse'
       headers:
         Cko-Request-Id:
           $ref: "#/headers/Cko-Request-Id"
