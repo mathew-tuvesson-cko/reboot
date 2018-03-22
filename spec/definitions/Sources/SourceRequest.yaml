@@ -19,7 +19,22 @@ properties:
     description: The payment source owner's phone number
     allOf:
       - $ref: '#/definitions/PhoneNumber'
-  customer_id:
-    type: string
-    description: The identifier of the customer you wish to add this source to. Note that a source can only be added to *one* customer
-    example: "cus_y3oqhf46pyzuxjbcn2giaqnb44"
+  customer:
+    type: object
+    description: Details of the customer to associate with the source
+    properties:
+      id:
+        type: string
+        description: | 
+          The identifier of an existing customer. If neither customer `id` or `email` is provided
+          a new customer will be registered
+        example: cus_y3oqhf46pyzuxjbcn2giaqnb44
+      email:
+        type: string
+        format: email
+        description: An optional email address to associate with the customer
+        example: jokershere@gmail.com
+      name:
+        type: string
+        description: The customer's name. This will only set the name for *new* customers
+        example: Jack Napier
