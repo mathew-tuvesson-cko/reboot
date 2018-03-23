@@ -164,8 +164,4 @@ properties:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/actions"
       refund:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/refund"
-      response-code:
-        href: "https://api.checkout.com/refs/response-codes/10000"
-          
-        
     
