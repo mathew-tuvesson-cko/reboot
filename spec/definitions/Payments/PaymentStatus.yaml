@@ -1,0 +1,10 @@
+type: string
+description: The status of the payment
+enum:
+  - Pending
+  - Authorised
+  - Voided
+  - Captured
+  - Refunded
+  - Declined
+  - Cancelled

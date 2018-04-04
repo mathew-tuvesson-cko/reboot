@@ -30,13 +30,8 @@ properties:
     maxLength: 3
     minLength: 3
   status:
-    type: string
-    description: The status of the payment
-    enum:
-      - Authorised
-      - Deferred Capture
-      - Captured
-      - Declined
+    allOf:
+      - $ref: '#/definitions/PaymentStatus'
   auth_code:
     type: string
     description: The acquirer authorisation code if the payment was Authorised
