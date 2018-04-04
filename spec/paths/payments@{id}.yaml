@@ -1,9 +1,9 @@
 get:
   tags:
     - Payments
-  summary: Retrieve a payment
+  summary: Get payment details
   description: |
-    Retrieves the payment with the specified identifier string
+    Returns the details of the payment with the specified identifier string
   parameters:
     - in: path
       name: id

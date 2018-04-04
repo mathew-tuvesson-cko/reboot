@@ -16,3 +16,8 @@ properties:
     type: string
     description: Gateway response code
     example: "10000"
+  customer:
+    type: object
+    description: The customer to which the payment source is linked
+    allOf:
+      - $ref: '#/definitions/SourceResponseCustomer'

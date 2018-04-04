@@ -104,7 +104,7 @@ properties:
     format: uri
     description: For redirect payment methods, overrides the default success redirect URL configured on your account
     example: "http://example.com/payments/success"
-  fail_url:
+  failure_url:
     type: string
     format: uri
     description: For redirect payment methods, overrides the default failure redirect URL configured on your account

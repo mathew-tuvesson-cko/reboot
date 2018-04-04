@@ -2,7 +2,7 @@ type: object
 description: Payment response
 required:
   - id
-  - created_on
+  - requested_on
   - amount
   - currency
   - status
@@ -12,8 +12,8 @@ properties:
     description: Payment unique identifier
     allOf:
       - $ref: '#/definitions/PaymentId'
-  created_on: # not sure about created vs requested
-    description: The date/time the payment was created
+  requested_on: 
+    description: The date/time the payment was requested
     allOf:
       - $ref: '#/definitions/ServerTimestamp'
   source:
