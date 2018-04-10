@@ -1,7 +1,5 @@
 type: object
 description: A phone number
-required:
-  - number
 properties:
   country_code: 
     type: string

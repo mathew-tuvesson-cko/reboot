@@ -1,17 +1,15 @@
 type: object
-description: A card payment source
+description: Card Token Request
 allOf:
-  - $ref: "#/definitions/PaymentRequestSource"
+  - $ref: '#/definitions/TokenRequest'
   - type: object
     required:
-      - type
       - number
       - expiry_month
       - expiry_year
     properties:
       type:
         type: string
-        description: The payment source type. With the exception of some alternative payment methods, this is inferred automatically
         enum:
           - card
       number:

@@ -1,9 +1,9 @@
 get:
   tags:
     - Payments
-  summary: Retrieve a payment's actions
+  summary: Get payment actions
   description: |
-    Retrieves all the actions associated with an action ordered by processing date in descending order (latest first).
+    Returns all the actions associated with a payment ordered by processing date in descending order (latest first).
   parameters:
     - in: path
       name: id

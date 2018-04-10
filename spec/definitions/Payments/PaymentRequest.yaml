@@ -42,13 +42,22 @@ properties:
     default: true
     example: true
   capture_on:
-    description: An ISO 8601 timestamp that determines when the payment should be captured. Only applied when `capture` is `true`
+    description: |
+      An ISO 8601 timestamp that determines when the payment should be captured. 
+      Providing this field will automatically set `capture` to true.
+
     allOf:
       - $ref: '#/definitions/Timestamp'
   customer:
     type: object
     description: Details of the customer associated with the payment
     properties:
+      id:
+        type: string
+        description: | 
+          The identifier of an existing customer. If neither customer `id` or `email` is provided
+          a new customer will be registered
+        example: cus_y3oqhf46pyzuxjbcn2giaqnb44
       email:
         type: string
         format: email
@@ -95,7 +104,7 @@ properties:
     format: uri
     description: For redirect payment methods, overrides the default success redirect URL configured on your account
     example: "http://example.com/payments/success"
-  fail_url:
+  failure_url:
     type: string
     format: uri
     description: For redirect payment methods, overrides the default failure redirect URL configured on your account

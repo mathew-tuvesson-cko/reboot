@@ -4,11 +4,11 @@ allOf:
   - $ref: '#/definitions/SourceRequest'
   - type: object
     properties:
-      source_type:
+      type:
         type: string
         enum:
           - sepa
-      sepa:
+      source_data:
         type: object
         description: Additional data required to create SEPA payment sources
         properties:

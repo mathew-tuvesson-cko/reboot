@@ -2,7 +2,7 @@ type: object
 description: Payment response
 required:
   - id
-  - created_on
+  - requested_on
   - amount
   - currency
   - status
@@ -12,8 +12,8 @@ properties:
     description: Payment unique identifier
     allOf:
       - $ref: '#/definitions/PaymentId'
-  created_on: # not sure about created vs requested
-    description: The date/time the payment was created
+  requested_on: 
+    description: The date/time the payment was requested
     allOf:
       - $ref: '#/definitions/ServerTimestamp'
   source:
@@ -49,16 +49,8 @@ properties:
     description: A description of the payment
     example: Set of 3 masks
   status:
-    type: string
-    description: The current status of the payment
-    enum:
-      - Authorised
-      - Voided
-      - Deferred Capture
-      - Captured
-      - Partially Refunded
-      - Refunded
-      - Declined
+    allOf:
+      - $ref: '#/definitions/PaymentStatus'
   3ds:
     type: boolean
     description: Whether this payment was processed with 3D-Secure
@@ -164,8 +156,4 @@ properties:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/actions"
       refund:
         href: "https://api.checkout.com/payments/pay_y3oqhf46pyzuxjbcn2giaqnb44/refund"
-      response-code:
-        href: "https://api.checkout.com/refs/response-codes/10000"
-          
-        
     

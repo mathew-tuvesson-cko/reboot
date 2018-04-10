@@ -6,7 +6,7 @@ allOf:
   - $ref: "#/definitions/PaymentRequestSource"
   - type: object
     properties:
-      source_type:
+      type:
         type: string
         description: The payment source type. With the exception of some alternative payment methods, this is inferred automatically
         enum:

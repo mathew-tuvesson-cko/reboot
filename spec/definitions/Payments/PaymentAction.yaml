@@ -1,16 +1,16 @@
 type: object
 required:
-  - action_id
-  - action_type
+  - id
+  - type
   - amount
   - response_code
   - processed_on
 properties:
-  action_id:
+  id:
     description: The unique identifier of the payment action
     allOf:
       - $ref: '#/definitions/ActionId'
-  action_type:
+  type:
     type: string
     description: The type of action
     enum:
