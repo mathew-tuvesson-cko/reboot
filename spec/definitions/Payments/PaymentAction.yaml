@@ -14,10 +14,9 @@ properties:
     type: string
     description: The type of action
     enum:
-      - Authorisation
+      - Authorization
       - Void
       - Capture
-      - Partial Refund
       - Refund
   processed_on:
     description: The date/time the action was processed
@@ -29,7 +28,7 @@ properties:
     example: 6540
   auth_code:
     type: string
-    description: The acquirer authorisation code for card authorisations
+    description: The acquirer authorization code for cards
     example: "643381"
   response_code:
     type: string

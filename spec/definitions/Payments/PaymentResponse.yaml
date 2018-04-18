@@ -40,7 +40,7 @@ properties:
     example: Authorized
   auth_code:
     type: string
-    description: The acquirer authorisation code if the payment was Authorized
+    description: The acquirer authorization code if the payment was Authorized
     example: "643381"
   response_code:
     type: string

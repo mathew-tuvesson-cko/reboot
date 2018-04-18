@@ -28,7 +28,7 @@ example:
       "response-code": 
         "href": "https://api.checkout.com/refs/response-codes/10000"
   - "id": "act_y3oqhf46pyzuxjbcn2giaqnb44"
-    "type": "Authorisation"
+    "type": "Authorization"
     "processed_on": "2018-01-17T09:30:48Z"
     "amount": 6540
     "approved": true
