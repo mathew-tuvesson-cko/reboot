@@ -2,7 +2,7 @@ type: string
 description: The status of the payment
 enum:
   - Pending
-  - Authorised
+  - Authorized
   - Voided
   - Captured
   - Refunded

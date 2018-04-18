@@ -35,6 +35,6 @@ get:
     '204':
       description: No events found
     '401':
-      description: Unauthorised
+      description: Unauthorized
     '422':
       $ref: '#/responses/InvalidDataError'

@@ -22,6 +22,6 @@ get:
       schema:
         $ref: '#/definitions/Notification'
     '401':
-      description: Unauthorised
+      description: Unauthorized
     '404':
       description: Event or notification not found

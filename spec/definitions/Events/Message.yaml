@@ -28,7 +28,7 @@ example:
   description: charge description
   response_message: Approved
   response_advanced_info: Approved
-  status: Authorised
+  status: Authorized
   # metadata:
   #   type: object
   #   example:
@@ -112,7 +112,7 @@ example:
 #     example: Approved
 #   status:
 #     type: string
-#     example: Authorised
+#     example: Authorized
 #   metadata:
 #     type: object
 #     example:

@@ -5,6 +5,7 @@ required:
   - action_id
   - amount
   - currency
+  - approved
   - status
   - response_code
   - processed_on
@@ -29,12 +30,17 @@ properties:
     example: USD
     maxLength: 3
     minLength: 3
+  approved:
+    type: boolean
+    description: Whether the payment request was approved
+    example: true
   status:
     allOf:
       - $ref: '#/definitions/PaymentStatus'
+    example: Authorized
   auth_code:
     type: string
-    description: The acquirer authorisation code if the payment was Authorised
+    description: The acquirer authorisation code if the payment was Authorized
     example: "643381"
   response_code:
     type: string

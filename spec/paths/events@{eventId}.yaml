@@ -17,6 +17,6 @@ get:
       schema:
         $ref: '#/definitions/EventObject'
     '401':
-      description: Unauthorised
+      description: Unauthorized
     '404':
       description: Event not found
