@@ -52,14 +52,10 @@ properties:
     allOf:
       - $ref: '#/definitions/PaymentStatus'
   3ds:
-    type: boolean
-    description: Whether this payment was processed with 3D-Secure
-    default: false
-    example: true
-  3ds_downgraded:
-    type: boolean
-    description: Whether this was a 3DS transaction, downgraded to Non-3DS (when `attempt_n3d` is specified)
-    example: false
+    type: object
+    description: Provides information relating to the processing of 3D-Secure payments
+    allOf:
+      - $ref: '#/definitions/3dsData'
   flagged:
     type: boolean
     description: Whether the payment was flagged by a risk check
