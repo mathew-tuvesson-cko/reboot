@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: '1.0'
-  title: Checkout REST API
+  title: Checkout.com API Reference
   contact:
     name: Checkout Support
     url: 'https://checkout.com'
@@ -13,10 +13,9 @@ info:
   description: >
     # Introduction
 
-    The Checkout API is built on HTTP.  Our API is RESTful.  It has predictable
+    The Checkout.com API is built on HTTP. Our API is RESTful. It has predictable
     resource URLs.  It returns HTTP response codes to indicate errors.  It also
     accepts and returns JSON in the HTTP body.
-
 
     You can use your favorite HTTP/REST library for your programming language to use Checkout's API,
     or you can use one of our SDKs (currently available in
