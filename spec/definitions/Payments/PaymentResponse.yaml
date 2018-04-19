@@ -35,8 +35,18 @@ properties:
     description: Whether the payment request was approved
     example: true
   status:
-    allOf:
-      - $ref: '#/definitions/PaymentStatus'
+    type: string
+    description: The status of the payment
+    enum:
+      - Pending
+      - Authorized
+      - Voided
+      - Partially Captured
+      - Captured
+      - Partially Refunded
+      - Refunded
+      - Declined
+      - Cancelled
     example: Authorized
   auth_code:
     type: string

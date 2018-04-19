@@ -49,8 +49,19 @@ properties:
     description: A description of the payment
     example: Set of 3 masks
   status:
-    allOf:
-      - $ref: '#/definitions/PaymentStatus'
+    type: string
+    description: The status of the payment
+    enum:
+      - Pending
+      - Authorized
+      - Voided
+      - Partially Captured
+      - Captured
+      - Partially Refunded
+      - Refunded
+      - Declined
+      - Cancelled
+    example: Authorized
   3ds:
     type: object
     description: Provides information relating to the processing of 3D-Secure payments
