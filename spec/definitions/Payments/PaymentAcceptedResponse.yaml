@@ -24,6 +24,11 @@ properties:
     description: The customer to which this payment is linked
     allOf:
       - $ref: '#/definitions/PaymentResponseCustomer'
+  3ds:
+    type: object
+    description: Provides 3D-Secure enrollment status
+    allOf:
+      - $ref: '#/definitions/3dsEnrollmentData'
   _links:
     type: object
     description: Payment links

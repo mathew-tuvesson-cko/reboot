@@ -52,9 +52,12 @@ properties:
     example: "Approved"
   3ds:
     type: object
-    description: Provides information relating to the processing of 3D-Secure payments
+    description: Provides 3D-Secure enrollment status if the payment was downgraded to Non-3DS
     allOf:
-      - $ref: '#/definitions/3dsData'
+      - $ref: '#/definitions/3dsEnrollmentData'
+    example:
+      downgraded: true
+      enrolled: N
   flagged:
     type: boolean
     description: Whether the payment was flagged by a risk check
