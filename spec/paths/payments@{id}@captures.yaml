@@ -36,3 +36,5 @@ post:
       $ref: '#/responses/InvalidDataError'
     '404':
       description: Payment not found
+    '502':
+      description: Bad gateway

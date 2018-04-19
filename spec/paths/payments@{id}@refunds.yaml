@@ -36,3 +36,5 @@ post:
       description: Refund not allowed
     '404':
       description: Payment not found
+    '502':
+      description: Bad gateway

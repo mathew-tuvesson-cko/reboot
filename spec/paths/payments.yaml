@@ -126,3 +126,5 @@ post:
       description: Unauthorized
     '422':
       $ref: '#/responses/InvalidDataError'
+    '502':
+      description: Bad gateway
